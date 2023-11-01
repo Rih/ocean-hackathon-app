@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getRoute } from '../../utils/routes';
+    import { getRoute } from '@utils/routes';
 
 	interface Beach {
 		id: number;

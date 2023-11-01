@@ -16,8 +16,8 @@
 			"@utils/*": ["./src/utils/*"],
 		}
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
-	"exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+	"include": ["src/**/*.d.ts", "node_modules/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
+	"exclude": ["node_modules/*", "__sapper__/*", "public/*", "src/service-worker.js"],
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//
 	// If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes

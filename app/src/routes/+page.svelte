@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getRoute } from "../utils/routes";
+	import { getRoute } from "@utils/routes";
 
     const onEnter = () => {
         console.log('onEnter')
@@ -11,6 +11,9 @@
     }
 
 </script>
+<h1 class="text-3xl font-bold underline">
+Hello world!
+</h1>
 <h1>Vamos a la Playa</h1>
 
 <h2>
@@ -31,6 +34,6 @@
 
 <style lang="postcss">
     :global(html) {
-      background-color: theme(colors.gray.100);
+      background-color: theme(colors.red.500);
     }
   </style>
