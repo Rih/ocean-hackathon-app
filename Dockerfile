@@ -16,12 +16,12 @@ COPY ./entrypoint-web.sh /usr/local/entrypoint/entrypoint-web.sh
 
 RUN chmod +x /usr/local/entrypoint/entrypoint-web.sh
 
-COPY ./vamos-a-la-playa/package*.json ./
+COPY ./app/package*.json ./
 # COPY ./package*.json ./
 
 RUN pnpm install
 
-COPY ./vamos-a-la-playa ./
+COPY ./app ./
 
 # USER node
 
