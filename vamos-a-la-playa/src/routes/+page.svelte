@@ -1,2 +1,30 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { getRoute } from "../utils/routes";
+
+    const onEnter = () => {
+        console.log('onEnter')
+        window.location.href = getRoute('search')
+    }
+    const onAbout = () => {
+        console.log('onAbout')
+        window.location.href = getRoute('about')
+    }
+
+</script>
+<h1>Vamos a la Playa</h1>
+
+<h2>
+    Una app para promover el cuidado y conservación de las playas de Chile
+</h2>
+
+<button on:click={onEnter}>Entrar</button>
+
+<button on:click={onAbout}>
+    Saber más sobre este proyecto
+</button>
+
+<button>
+    Salir de la app
+</button>
+
+

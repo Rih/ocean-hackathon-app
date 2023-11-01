@@ -9,8 +9,8 @@ export default defineConfig({
 			strategies: 'injectManifest',
 			srcDir: 'src',
 			filename: 'service-worker.js', // or `my-sw.ts`
-			/* other pwa options */  
-		  })
+			/* other pwa options */
+		})
 	],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
