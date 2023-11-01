@@ -6,9 +6,9 @@ export default defineConfig({
 	plugins: [
 		sveltekit(),
 		SvelteKitPWA({
-			strategies: 'injectManifest',
+			strategies: 'generateSW',
 			srcDir: 'src',
-			filename: 'service-worker.ts', // or `my-sw.ts`
+			filename: 'service-worker.js', // or `my-sw.ts`
 			outDir: 'build',
 			/* other pwa options */
 		})
