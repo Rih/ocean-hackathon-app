@@ -1,43 +1,23 @@
 <script lang="ts">
+	import Footer from '$lib/components/Footer.svelte';
+	import { BEACHES, type Beach } from '$lib/data';
 	import { goBack, goRoute } from '@utils/routes';
 	import {
 		Block,
 		BlockFooter,
 		Button,
+		Link,
 		List,
+		ListButton,
 		ListItem,
 		Navbar,
 		Page,
 		Searchbar
 	} from 'konsta/svelte';
 
-	interface Beach {
-		id: number;
-		title: string;
-	}
-
 	let searchQuery = '';
 	let focused: boolean = false;
-	const beaches: Beach[] = [
-		{ id: 1, title: 'FC Ajax' },
-		{ id: 2, title: 'FC Arsenal' },
-		{ id: 3, title: 'FC Athletic' },
-		{ id: 4, title: 'FC Barcelona' },
-		{ id: 5, title: 'FC Bayern München' },
-		{ id: 6, title: 'FC Bordeaux' },
-		{ id: 7, title: 'FC Borussia Dortmund' },
-		{ id: 8, title: 'FC Chelsea' },
-		{ id: 9, title: 'FC Galatasaray' },
-		{ id: 10, title: 'FC Juventus' },
-		{ id: 11, title: 'FC Liverpool' },
-		{ id: 12, title: 'FC Manchester City' },
-		{ id: 13, title: 'FC Manchester United' },
-		{ id: 14, title: 'FC Paris Saint-Germain' },
-		{ id: 15, title: 'FC Real Madrid' },
-		{ id: 16, title: 'FC Tottenham Hotspur' },
-		{ id: 17, title: 'FC Valencia' },
-		{ id: 18, title: 'FC West Ham United' }
-	];
+	const beaches: Beach[] = BEACHES;
 
 	const handleSearch = (e) => {
 		searchQuery = e.target.value;
@@ -56,6 +36,11 @@
 	};
 	const handleBlur = () => {
 		focused = false;
+	};
+
+	const onBeachSelected = (id: number) => {
+		debugger;
+		goRoute('beach_index', { id });
 	};
 
 	let filteredItems: Beach[] = [];
@@ -89,19 +74,16 @@
 
 	<List strong insetMaterial outlineIos>
 		<span>Listado de playas:</span>
-		{#if filteredItems.length === 0}
+		{#each filteredItems as item (item.id)}
+			<ListItem link title={item.title} touchRipple onClick={() => onBeachSelected(item.id)} />
+		{:else}
 			<ListItem title="Sin resultados" />
-		{/if}
-		{#each filteredItems as item (item.title)}
-			<ListItem title={item.title} touchRipple />
 		{/each}
 	</List>
 	<Block>
-		<BlockFooter>
-			<Button onClick={() => goRoute('manual')}>Manual de buenas prácticas</Button>
-			<Button onClick={goBack}>Volver</Button>
-		</BlockFooter>
+		<Button onClick={() => goRoute('manual', {})}>Manual de buenas prácticas</Button>
 	</Block>
+	<Footer />
 </Page>
 
 <style>

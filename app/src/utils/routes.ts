@@ -19,16 +19,6 @@ export const ROUTES: Route[] = [
         uri: '/search'
     },
     {
-        name: 'about',
-        title: 'Acerca de',
-        uri: '/about'
-    },
-    {
-        name: 'terms',
-        title: 'Terminos y condiciones',
-        uri: '/terms'
-    },
-    {
         name: 'manual',
         title: 'Manual de buenas prácticas',
         uri: '/manual'
@@ -39,51 +29,86 @@ export const ROUTES: Route[] = [
         uri: '/credits'
     },
     {
+        name: 'beach_index',
+        title: 'Playa',
+        uri: '/beach',
+    },
+    {
         name: 'beach_contamination',
         title: 'Contaminación',
-        uri: '/beach-details/contamination',
+        uri: '/beach/[id]/contamination',
     },
     {
         name: 'beach_report',
         title: 'Denunciar',
-        uri: '/beach-details/report',
+        uri: '/beach/[id]/report',
     },
     {
-        name: 'beach_bio_fauna',
-        title: 'Fauna',
-        uri: '/beach-details/biodiversity/fauna',
+        name: 'beach_report_contamination',
+        title: 'Denunciar contaminación',
+        uri: '/beach/[id]/report/contamination',
+    },
+    {
+        name: 'beach_report_fauna',
+        title: 'Denunciar fauna',
+        uri: '/beach/[id]/report/fauna',
+    },
+    {
+        name: 'beach_report_block',
+        title: 'Denunciar bloqueo acceso',
+        uri: '/beach/[id]/report/access',
+    },
+    {
+        name: 'beach_bio_index',
+        title: 'Biodiversidad',
+        uri: '/beach/[id]/biodiversity',
     },
     {
         name: 'beach_bio_flora',
         title: 'Flora',
-        uri: '/beach-details/biodiversity/flora',
+        uri: '/beach/[id]/biodiversity/flora',
+    },
+    {
+        name: 'beach_bio_fauna',
+        title: 'Fauna',
+        uri: '/beach/[id]/biodiversity/fauna',
     },
     {
         name: 'beach_bio_entity',
         title: 'Entidad',
-        uri: '/beach-details/biodiversity/entity',
+        uri: '/beach/[id]/biodiversity/entity',
     },
     {
         name: 'beach_bio_form',
         title: 'Formulario',
-        uri: '/beach-details/biodiversity/form',
+        uri: '/beach/[id]/biodiversity/form',
     },
     {
         name: 'beach_bio_photo',
         title: 'Foto',
-        uri: '/beach-details/biodiversity/photo',
+        uri: '/beach/[id]/biodiversity/photo',
     }
 ]
 
-export const goRoute = (name: string) => {
+type ExtraRouteParams = {
+    id?: number | null,
+}
+export const goRoute = (
+    name: string,
+    { id = null }: ExtraRouteParams
+) => {
     const foundRoute = ROUTES.find(r => r.name === name)
+    let completeRoute = foundRoute?.uri!;
+    if (id) {
+        completeRoute = `${completeRoute.replace(/\[id\]/, String(id))}`;
+    }
     if (!PREFIX) {
-        goto(`${foundRoute?.uri}`);
+        goto(completeRoute);
         return;
     }
-    return `/${PREFIX}${foundRoute?.uri}`;
+    return `/${PREFIX}${completeRoute}`;
 }
 
-export const goBack = (defaultRoute = 'home') => {
+export const goBack = (defaultRoute: string = 'home') => {
     history.back();
 }

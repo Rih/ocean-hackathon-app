@@ -9,7 +9,12 @@
 	let subs = navigateState.subscribe((value: NavigateStore) => {
 		leftPanelOpened = value.menu;
 	});
-	const excluded_routes = ['beach_bio_entity', 'beach_bio_form', 'beach_bio_photo'];
+	const excluded_routes = [
+		'beach_bio_entity', 'beach_bio_form', 'beach_bio_photo',
+		'beach_contamination', 'beach_index','beach_bio_index', 
+		'beach_report_contamination', 'beach_report_fauna', 'beach_report_block',
+		'beach_report', 'beach_bio_fauna', 'beach_bio_flora',
+	];
 	$: routes = ROUTES.filter(r => !excluded_routes.includes(r.name))
 </script>
 
@@ -21,7 +26,7 @@
 			</Navbar>
 			<List>
 				{#each routes as route}
-					<ListItem href="#" onClick={() => goRoute(route.name)} title={route.title} />
+					<ListItem href="#" onClick={() => goRoute(route.name, {})} title={route.title} />
 				{/each}
 			  </List>
 		</Page>

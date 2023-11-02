@@ -1,30 +1,62 @@
-<script>
+<script lang="ts">
+	import Footer from '$lib/components/Footer.svelte';
+	import { goBack } from '@utils/routes';
+	import { Page, List, ListItem, Preloader, Button, Block } from 'konsta/svelte';
 
-	import { goBack } from "@utils/routes";
-	import { List, Preloader } from "konsta/svelte";
-
+	const acknowledge: string[] = [
+		'Valentina Nuñez',
+		'Cristóbal Castillo',
+		'Javier Pinochet',
+		'Macarena Díaz',
+		'Rodrigo Díaz'
+	];
 </script>
-<div class="text-center">
-Este proyecto fue desarrollado por:
-</div>
-<List>
-    Valentina Nuñez
-    Cristóbal Castillo
-    Javier Pinochet
-    Macarena Díaz
-    Rodrigo Díaz
-</List>
 
-<div class="text-center">
-    <Preloader size="w-16 h-16" />
-  </div>
-  
-<button>Terminos y condiciones</button>
+<Page class="page">
+	<div class="title text-center">Este proyecto fue desarrollado por:</div>
+	<Block>
+		<List class="ack">
+			{#each acknowledge as ack}
+				<ListItem class="ack-item" title={ack} />
+			{/each}
+		</List>
+	</Block>
+		<!-- <Preloader size="w-16 h-16" /> -->
+	<Block>
+		<span class="ack-to text-center"> Agradecemos a </span>
+	</Block>
+	<Block>
+    <img src="" alt="logo1" width="100" /> 
+    <img src="" alt="logo2 newdev" width="100" /> 
+    
+  </Block>
+	<Block>
+		<p class="contribution">Por su valioso aporte a esta aplicación</p>
+	</Block>
+	<Block>
+		<Button>Contáctanos</Button>
+	</Block>
+	<Footer />
+</Page>
 
-Agradecemos a 
-
-Logo
-
-Por su valioso aporte a esta aplicación
-
-<button on:click={goBack}>Volver</button>
+<style>
+	.page {
+		display: flex;
+		flex-direction: column;
+	}
+	.title {
+		margin-top: 4.1rem;
+		font-size: 2.1rem;
+	}
+	.ack-item {
+		text-align: center;
+	}
+	.contribution {
+		display: block;
+		text-align: center;
+		font-size: 1.2rem;
+	}
+	.ack-to {
+		text-align: center;
+	}
+</style>

@@ -4,11 +4,11 @@
 
 	const onEnter = () => {
 		console.log('onEnter');
-		goRoute('search');
+		goRoute('search', {});
 	};
 	const onAbout = () => {
 		console.log('onAbout');
-		goRoute('about');
+		goRoute('about', {});
 	};
 
 	const onExit = () => {
