@@ -1,2 +1,5 @@
+<script>
+	import { Page } from 'konsta/svelte';
+</script>
 
-beach details here
+<Page>beach details here</Page>

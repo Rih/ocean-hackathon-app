@@ -41,8 +41,10 @@
 		<div class="container">
 			<AppLayout>
 				<Sidebar />
-				<AppHeader />
-				<slot />
+				<div class="child">
+					<AppHeader />
+					<slot />
+				</div>
 			</AppLayout>
 		</div>
 	</App>
@@ -54,10 +56,16 @@
 
 <style lang="postcss">
 	:global(html) {
-		background-color: theme(colors.gray.100);
+		background-color: theme(colors.blue.100);
 	}
 	:global(body) {
 		/* background-image: url('./background.jpg');
 		opacity: 0.1; */
+	}
+	.child{
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+		justify-items: stretch;
 	}
 </style>
