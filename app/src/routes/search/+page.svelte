@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getRoute } from '@utils/routes';
+    import { goBack, goRoute } from '@utils/routes';
 
 	interface Beach {
 		id: number;
@@ -12,7 +12,7 @@
 		{ id: 1, name: 'Playa de la Conch' }
 	];
     const onBack = () => {
-        window.location.href = getRoute('home');
+        window.location.href = goRoute('home');
     }
 </script>
 
@@ -29,5 +29,5 @@ Listado de playas:
 
 <i>search</i><input type="text" />
 
-<a href={getRoute('manual')}>Manual de buenas prácticas</a>
-<button on:click={onBack}>Volver</button>
+<a href={goRoute('manual')}>Manual de buenas prácticas</a>
+<button on:click={goBack}>Volver</button>

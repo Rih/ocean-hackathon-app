@@ -1,0 +1,12 @@
+{
+    "short_name": "Playa",
+    "name": "vamos-a-la-playa",
+    "start_url": "/",
+    "icons": [],
+    "backgorund-color": "#3367D6",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "theme_color": "#3367D6",
+    "description": "Vamos a la playa",
+}

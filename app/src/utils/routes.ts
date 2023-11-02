@@ -1,3 +1,4 @@
+import { goto } from '$app/navigation';
 
 export const PREFIX = ''
 export const ROUTES = [
@@ -63,10 +64,14 @@ export const ROUTES = [
     }
 ]
 
-export const getRoute = (name: string) => {
-    const foundRoute = ROUTES.find( r => r.name === name)
+export const goRoute = (name: string) => {
+    const foundRoute = ROUTES.find(r => r.name === name)
     if (!PREFIX) {
-      return `${foundRoute?.uri}`;
+        goto(`${foundRoute?.uri}`);
     }
     return `/${PREFIX}${foundRoute?.uri}`;
+}
+
+export const goBack = (defaultRoute = 'home') => {
+    history.back();
 }
