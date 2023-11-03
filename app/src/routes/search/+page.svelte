@@ -39,7 +39,6 @@
 	};
 
 	const onBeachSelected = (id: number) => {
-		debugger;
 		goRoute('beach_index', { id });
 	};
 
@@ -50,9 +49,9 @@
 			? beaches.filter((item: Beach) =>
 					item.title.toLowerCase().includes(searchQuery.toLowerCase())
 			  )
-			: focused
+			: /*focused
 			? beaches
-			: [];
+			: */ [];
 	}
 </script>
 

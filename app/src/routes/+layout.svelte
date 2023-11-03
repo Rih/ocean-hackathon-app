@@ -4,6 +4,7 @@
 	import { pwaInfo } from 'virtual:pwa-info';
 	import '../app.css';
 	import { App } from 'konsta/svelte';
+	// import { App } from 'framework7-svelte';
 	import AppLayout from '$lib/components/AppLayout.svelte';
 	import { KonstaProvider } from 'konsta/svelte';
 	import Sidebar from '$lib/components/CustomSidebar.svelte';
@@ -28,7 +29,10 @@
 			});
 		}
 	});
-
+	const f7parms = {
+		theme: 'material'
+		// ...
+	};
 	$: webManifest = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 </script>
 
@@ -36,17 +40,20 @@
 	{@html webManifest}
 </svelte:head>
 
-<KonstaProvider theme="ios">
-	<App theme="material">
-		<div class="container">
-			<AppLayout>
-				<Sidebar />
-				<div class="child">
-					<AppHeader />
-					<slot />
-				</div>
-			</AppLayout>
-		</div>
+<KonstaProvider theme="parent">
+	<App theme="material" >
+	<!-- <App {...f7parms}> -->
+		<!-- <AppK> -->
+			<div class="container">
+				<AppLayout>
+					<Sidebar />
+					<div class="child">
+						<AppHeader />
+						<slot />
+					</div>
+				</AppLayout>
+			</div>
+		<!-- </AppK> -->
 	</App>
 </KonstaProvider>
 
@@ -62,10 +69,11 @@
 		/* background-image: url('./background.jpg');
 		opacity: 0.1; */
 	}
-	.child{
+	.child {
 		display: flex;
 		flex-direction: column;
 		width: 100vw;
+		min-height: 100vh;
 		justify-items: stretch;
 	}
 </style>

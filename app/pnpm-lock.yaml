@@ -42,9 +42,15 @@ devDependencies:
   eslint-plugin-svelte:
     specifier: ^2.30.0
     version: 2.30.0(eslint@8.28.0)(svelte@4.0.5)
+  flowbite-svelte-icons:
+    specifier: ^0.4.5
+    version: 0.4.5(svelte@4.0.5)(tailwind-merge@2.0.0)(tailwindcss@3.3.5)
   framework7-icons:
     specifier: ^5.0.5
     version: 5.0.5
+  framework7-svelte:
+    specifier: ^8.3.0
+    version: 8.3.0
   postcss:
     specifier: ^8.4.31
     version: 8.4.31
@@ -3101,6 +3107,18 @@ packages:
     resolution: {integrity: sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==}
     dev: true
 
+  /flowbite-svelte-icons@0.4.5(svelte@4.0.5)(tailwind-merge@2.0.0)(tailwindcss@3.3.5):
+    resolution: {integrity: sha512-IBudEfw9B4UE2gCRMhbRnyE8p7qq7DDMauy0mPVIShzjaN3yVk2AmAHia1JRe9jUC98Wn7xNk/IdJlXeQj19Iw==}
+    peerDependencies:
+      svelte: ^3.54.0 || ^4.0.0
+      tailwind-merge: ^2.0.0
+      tailwindcss: ^3.3.2
+    dependencies:
+      svelte: 4.0.5
+      tailwind-merge: 2.0.0
+      tailwindcss: 3.3.5
+    dev: true
+
   /for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -3114,6 +3132,10 @@ packages:
   /framework7-icons@5.0.5:
     resolution: {integrity: sha512-bvHMLyujV9TFuudehd3ORZ/EvNp19Ir3ckVzYAOf3MkLymHba/9oHLsgopCh0x5UsrYZUpkrE+fd7ggj5y4wRw==}
     engines: {node: '>= 0.10.0'}
+    dev: true
+
+  /framework7-svelte@8.3.0:
+    resolution: {integrity: sha512-Yj5VFl8/1N1oZx0hK4mGW69MV+zAkswwNU4jShUwSq2+4uxq9eEoODYext7XlhGiYCrzqfzpL1xf/3P5yDCTww==}
     dev: true
 
   /fs-extra@9.1.0:
@@ -5039,6 +5061,12 @@ packages:
       css-tree: 2.3.1
       csso: 5.0.5
       picocolors: 1.0.0
+    dev: true
+
+  /tailwind-merge@2.0.0:
+    resolution: {integrity: sha512-WO8qghn9yhsldLSg80au+3/gY9E4hFxIvQ3qOmlpXnqpDKoMruKfi/56BbbMg6fHTQJ9QD3cc79PoWqlaQE4rw==}
+    dependencies:
+      '@babel/runtime': 7.23.2
     dev: true
 
   /tailwindcss@3.3.5:

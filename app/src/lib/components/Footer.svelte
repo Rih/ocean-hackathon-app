@@ -6,7 +6,6 @@
 
 
 <BlockFooter class="footer">
-	<Button onClick={goBack}>Volver</Button>
 </BlockFooter>
 
 

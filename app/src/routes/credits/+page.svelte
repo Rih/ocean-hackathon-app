@@ -26,8 +26,8 @@
 		<span class="ack-to text-center"> Agradecemos a </span>
 	</Block>
 	<Block>
-    <img src="" alt="logo1" width="100" /> 
-    <img src="" alt="logo2 newdev" width="100" /> 
+    <img class="image" src="" alt="logo1" width="100" /> 
+    <img class="image" src="./logoNewDev.png" alt="logo2 newdev" /> 
     
   </Block>
 	<Block>
@@ -48,6 +48,11 @@
 		margin-top: 4.1rem;
 		font-size: 2.1rem;
 	}
+	.ack{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 	.ack-item {
 		text-align: center;
 	}
@@ -55,6 +60,10 @@
 		display: block;
 		text-align: center;
 		font-size: 1.2rem;
+	}
+	.image{
+		width: 90vw;
+		margin: 0 auto;
 	}
 	.ack-to {
 		text-align: center;

@@ -2,7 +2,7 @@
 	import { Block, Button, Link, Page } from 'konsta/svelte';
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
-	import { BEACHES } from '$lib/data.ts';
+	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
 
 	const id = Number($page.params.id);

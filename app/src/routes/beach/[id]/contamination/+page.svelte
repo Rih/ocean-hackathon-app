@@ -2,7 +2,7 @@
 	import { Block, Button, Page } from 'konsta/svelte';
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
-	import { BEACHES } from '$lib/data.ts';
+	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
 
 	const id = Number($page.params.id);
@@ -38,16 +38,26 @@
 		<p>Recomendaciones a tomar debido al resultados de los dos índices.</p>
 	</Block>
 	<Block outlineIos class="space-y-2">
-		<div class="grid grid-cols-2 gap-x-8">
+		<div class="grid grid-cols-2 gap-x-4">
 			<div>
-				Evalúa tu playa
+				<Button
+					class="font-bold"
+					onClick={() => goRoute('beach_contamination_evaluate', { id })}
+					large
+					outline>Evalúa tu playa</Button
+				>
 			</div>
 			<div>
-				Saber más
+				<Button
+					class="font-bold"
+					onClick={() => goRoute('beach_contamination_knowmore', { id })}
+					large
+					outline>Saber más</Button
+				>
 			</div>
 		</div>
 	</Block>
-	
+
 	<Footer />
 </Page>
 

@@ -31,12 +31,22 @@ export const ROUTES: Route[] = [
     {
         name: 'beach_index',
         title: 'Playa',
-        uri: '/beach',
+        uri: '/beach/[id]',
     },
     {
         name: 'beach_contamination',
         title: 'Contaminación',
         uri: '/beach/[id]/contamination',
+    },
+    {
+        name: 'beach_contamination_evaluate',
+        title: 'Evalúa tu playa',
+        uri: '/beach/[id]/contamination/evaluate',
+    },
+    {
+        name: 'beach_contamination_knowmore',
+        title: 'Saber más',
+        uri: '/beach/[id]/contamination/know-more',
     },
     {
         name: 'beach_report',
@@ -75,8 +85,13 @@ export const ROUTES: Route[] = [
     },
     {
         name: 'beach_bio_entity',
-        title: 'Entidad',
-        uri: '/beach/[id]/biodiversity/entity',
+        title: 'Categorías',
+        uri: '/beach/[id]/biodiversity/[entityId]/entity',
+    },
+    {
+        name: 'beach_bio_entity_organism',
+        title: 'Detalle organismo',
+        uri: '/beach/[id]/biodiversity/[entityId]/entity/[organismId]',
     },
     {
         name: 'beach_bio_form',
@@ -92,15 +107,24 @@ export const ROUTES: Route[] = [
 
 type ExtraRouteParams = {
     id?: number | null,
+    entityId?: number | null,
+    organismId?: number | null,
 }
 export const goRoute = (
     name: string,
-    { id = null }: ExtraRouteParams
+    { id = null, entityId = null, organismId = null }: ExtraRouteParams
 ) => {
     const foundRoute = ROUTES.find(r => r.name === name)
     let completeRoute = foundRoute?.uri!;
     if (id) {
         completeRoute = `${completeRoute.replace(/\[id\]/, String(id))}`;
+    }
+    if (entityId) {
+        completeRoute = `${completeRoute.replace(/\[entityId\]/, String(entityId))}`;
+    }
+    if (organismId) {
+        completeRoute = `${completeRoute.replace(/\[organismId\]/, String(organismId))}`;
+
     }
     if (!PREFIX) {
         goto(completeRoute);

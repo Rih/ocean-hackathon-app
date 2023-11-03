@@ -8,6 +8,11 @@ export interface Beach {
     details: string;
 }
 
+export interface Entity {
+    id: number;
+    name: string;
+    categoryId: number;
+}
 
 export const BEACHES: Beach[] = [
     { id: 1, title: 'Niebla', region: 'Región de los Ríos', plastic_index: 13, danger_index: 35, details: 'La Playa Niebla se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
@@ -16,21 +21,59 @@ export const BEACHES: Beach[] = [
     { id: 4, title: 'XXXX', region: 'Región de Antofagasta', plastic_index: 13, danger_index: 35, details: 'La Playa XXXX se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
     { id: 5, title: 'YYYY', region: 'Región del Maule', plastic_index: 13, danger_index: 35, details: 'La Playa YYYY se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
     { id: 6, title: 'ZZZZ', region: 'Región de los Lagos', plastic_index: 13, danger_index: 35, details: 'La Playa ZZZZ se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 7, title: 'AAAA', region: 'Región del Biobio', plastic_index: 13, danger_index: 35, details: 'La Playa AAAA se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 8, title: 'BBBB', region: 'Región de Los Lagos', plastic_index: 13, danger_index: 35, details: 'La Playa BBBB se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 9, title: 'CCCC', region: 'Región de Aysen', plastic_index: 13, danger_index: 35, details: 'La Playa CCCC se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 10, title: 'DDDD', region: 'Región de Araucanía', plastic_index: 13, danger_index: 35, details: 'La Playa DDDD se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 11, title: 'EEEE', region: 'Región de los Ríos', plastic_index: 13, danger_index: 35, details: 'La Playa EEEE se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 12, title: 'FFFF', region: 'Región Metropolitana', plastic_index: 13, danger_index: 35, details: 'La Playa FFFF se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 13, title: 'GGGG', region: 'Región X', plastic_index: 13, danger_index: 35, details: 'La Playa GGGG se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 14, title: 'HHHH', region: 'Región Y', plastic_index: 13, danger_index: 35, details: 'La Playa HHHH se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 15, title: 'IIII', region: 'Región Z', plastic_index: 13, danger_index: 35, details: 'La Playa IIII se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 16, title: 'JJJJ', region: 'Región W', plastic_index: 13, danger_index: 35, details: 'La Playa JJJJ se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 17, title: 'KKKK', region: 'Región B', plastic_index: 13, danger_index: 35, details: 'La Playa KKKK se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
-    { id: 18, title: 'LLLL', region: 'Región C', plastic_index: 13, danger_index: 35, details: 'La Playa LLLL se encuentra en el norte de Chile, en la ciudad de Antofagasta, la cual tiene una población aproximada de 361,873 habitantes. La playa es conocida por su belleza natural y su ambiente relajante, siendo uno de los destinos más populares en la Región de Antofagasta para disfrutar del mar y el clima cálido.' },
 ];
 
 
-export const BIO_FLORA = {
+export const CATEGORY_FLORA = 1;
+export const CATEGORY_FAUNA = 2;
 
+export const ENTITIES: Entity[] = [
+    { id: 1, name: 'Aves', categoryId: CATEGORY_FAUNA, },
+    { id: 2, name: 'Mamíferos', categoryId: CATEGORY_FAUNA, },
+    { id: 3, name: 'Reptiles', categoryId: CATEGORY_FAUNA, },
+    { id: 4, name: 'Anfibios', categoryId: CATEGORY_FAUNA, },
+    { id: 5, name: 'Invertebrados marinos', categoryId: CATEGORY_FAUNA, },
+    { id: 6, name: 'Plantas', categoryId: CATEGORY_FLORA, },
+];
+
+
+export interface Catalog {
+    id: number;
+    name: string;
+    scientific_name: string;
+    image: string;
+    details: string;
+    conservation_status: StatusConservation;
+    entityId: number;
 }
+
+export enum StatusConservation {
+    BP = 'BP',
+    ALMOST_THREATENED = 'CA',
+    VULNERABLE = 'V',
+    A = 'A',
+    CA = 'CA',
+    ENDANGERED = 'EN',
+    EXTINTION = 'E',
+}
+
+export const CATALOG: Catalog[] = [
+    {
+        id: 1,
+        name: 'Pelícano',
+        scientific_name: 'Pelecanus thagus',
+        image: '',
+        details: 'El pelícano es un ave marina costera. Esta especie es endémica de la Corriente de  Humboldt. Se alimenta principalmente de peces pequeños, como la anchoveta. Es común verlo cerca de caleta de pescadores, muelles, y roqueríos',
+        conservation_status: StatusConservation.ALMOST_THREATENED,
+        entityId: 1
+    },
+    {
+        id: 2,
+        name: 'Planta carnivora',
+        scientific_name: 'Planta carnivorus',
+        image: '',
+        details: 'El flor de come lo que sea.',
+        conservation_status: StatusConservation.ALMOST_THREATENED,
+        entityId: 6
+    }
+]

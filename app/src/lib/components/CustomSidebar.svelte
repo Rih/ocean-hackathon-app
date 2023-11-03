@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { NavigateStore } from '$lib/store/general/navigate';
 	import { goRoute, ROUTES } from '@utils/routes';
-	import { Page, Navbar, Panel, Link, List, ListItem } from 'konsta/svelte';
+	import { CloseOutline } from 'flowbite-svelte-icons';
+	import { Page, Navbar, Panel, Link, List, ListItem, Icon } from 'konsta/svelte';
 	import { getContext } from 'svelte';
 
 	const { navigateState } = getContext<any>('navigateStore');
@@ -12,6 +13,7 @@
 	const excluded_routes = [
 		'beach_bio_entity', 'beach_bio_form', 'beach_bio_photo',
 		'beach_contamination', 'beach_index','beach_bio_index', 
+		'beach_contamination_evaluate', 'beach_contamination_knowmore',
 		'beach_report_contamination', 'beach_report_fauna', 'beach_report_block',
 		'beach_report', 'beach_bio_fauna', 'beach_bio_flora',
 	];
@@ -22,7 +24,11 @@
 	<Panel side="left" opened={leftPanelOpened} onBackdropClick={navigateState.toggleMenu}>
 		<Page>
 			<Navbar title="Vamos a la playa">
-				<Link slot="right" navbar onClick={() => (leftPanelOpened = false)}><i>clear_fill</i></Link>
+				<Link slot="right" iconOnly navbar onClick={() => (leftPanelOpened = false)}>
+					<Icon badgeColors={{ bg: 'bg-red-500' }}>
+						<CloseOutline />
+					</Icon>
+				</Link>
 			</Navbar>
 			<List>
 				{#each routes as route}

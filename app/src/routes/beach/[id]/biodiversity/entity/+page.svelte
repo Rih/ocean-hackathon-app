@@ -1,1 +1,0 @@
-Aqui el detalle de flora o fauna

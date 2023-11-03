@@ -12,26 +12,20 @@
 </script>
 
 <Page>
-	<h2 class="title">Acceso bloqueado</h2>
+	<h2 class="title">Construcción de los índices y escalas de interpretación</h2>
 	<Block outlineIos class="space-y-2">
 		<p class="subtitle">
-			La ley chilena concede a todas las personas que estén en Chile el derecho a acceder a playas
-			de mar o lago, desembocaduras de ríos, cascadas o glaciares
+			En la construcción de los índices, se emplearon dos enfoques distintos. El primero evalúa la
+			contaminación por plástico al calcular el cociente del plástico total entre el área estudiada.
+			El segundo enfoque mide la peligrosidad al calcular el cociente del plástico total entre los
+			metales y vidrios potencialmente peligrosos y el área en cuestión.
 		</p>
 	</Block>
 	<Block>
-		<p>
-			Si ves que el acceso peatonal a la playa está bloqueado, están controlando el acceso, o están
-			cobrando por ingresar, haz tu denuncia a través de los canales oficiales del Ministerio de
-			Bienes Nacionales haciendo click acá:
-		</p>
-
-		<Link component="a" href="https://idembn.bienes.cl/fcp/web-form/65" target="_blank">
-			https://idembn.bienes.cl/fcp/web-form/65
-		</Link>
+		<img src="/contamination_knowmore1.png" alt="formula indice CCI" />
 	</Block>
-	<Block outlineIos class="space-y-2">
-		Fuente: <span class="source">Código Civil Artículo 589, Decreto Ley 1.939 Artículo 13</span>
+	<Block>
+		<img src="/contamination_knowmore2.png" alt="formula indice HABLI" />
 	</Block>
 
 	<Footer />

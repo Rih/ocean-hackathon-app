@@ -13,7 +13,7 @@ export default defineConfig({
 			/* other pwa options */
 		})
 	],
-	
+
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
