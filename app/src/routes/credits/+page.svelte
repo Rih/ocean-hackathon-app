@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import Title from '$lib/components/Title.svelte';
 	import { goBack } from '@utils/routes';
 	import { Page, List, ListItem, Preloader, Button, Block } from 'konsta/svelte';
 
@@ -13,7 +14,7 @@
 </script>
 
 <Page class="page">
-	<div class="title text-center">Este proyecto fue desarrollado por:</div>
+	<Title title="Este proyecto fue desarrollado por:" />
 	<Block>
 		<List class="ack">
 			{#each acknowledge as ack}
@@ -26,27 +27,21 @@
 		<span class="ack-to text-center"> Agradecemos a </span>
 	</Block>
 	<Block>
-    <img class="image" src="" alt="logo1" width="100" /> 
-    <img class="image" src="./logoNewDev.png" alt="logo2 newdev" /> 
-    
-  </Block>
+	    <img class="image" src="" alt="logo1" width="100" /> 
+	    <img class="image" src="./logoNewDev.png" alt="logo2 newdev" /> 
+  	</Block>
 	<Block>
 		<p class="contribution">Por su valioso aporte a esta aplicación</p>
 	</Block>
-	<Block>
+	<Footer>
 		<Button>Contáctanos</Button>
-	</Block>
-	<Footer />
+	</Footer>
 </Page>
 
 <style>
 	.page {
 		display: flex;
 		flex-direction: column;
-	}
-	.title {
-		margin-top: 4.1rem;
-		font-size: 2.1rem;
 	}
 	.ack{
 		display: flex;

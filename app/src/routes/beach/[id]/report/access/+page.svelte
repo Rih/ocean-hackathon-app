@@ -4,6 +4,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
+	import Title from '$lib/components/Title.svelte';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
@@ -12,7 +13,7 @@
 </script>
 
 <Page>
-	<h2 class="title">Acceso bloqueado</h2>
+	<Title title="Acceso bloqueado" justify="left" />
 	<Block outlineIos class="space-y-2">
 		<p class="subtitle">
 			La ley chilena concede a todas las personas que estén en Chile el derecho a acceder a playas
@@ -38,11 +39,6 @@
 </Page>
 
 <style>
-	.title {
-		margin-top: 4.5rem;
-		font-size: 2rem;
-		text-align: center;
-	}
 	.subtitle {
 		font-size: 1.8rem;
 		text-align: center;

@@ -24,8 +24,9 @@ RUN pnpm install
 COPY ./app ./
 
 # USER node
-RUN pnpm run build
-CMD ["node", "build/index.js"]
 
-EXPOSE 3000
+CMD ["node"]
+
+
+EXPOSE 5173
 EXPOSE 4000

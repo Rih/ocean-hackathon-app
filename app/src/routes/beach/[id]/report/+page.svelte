@@ -2,25 +2,22 @@
 	import { Block, Button, Page } from 'konsta/svelte';
 	import { page } from '$app/stores';
 	import { goRoute } from '@utils/routes';
+	import Title from '$lib/components/Title.svelte';
+	import Notify from '$lib/components/Notify.svelte';
 
+
+	let open: boolean = false;
 	const id = Number($page.params.id);
 	console.log({ id });
 </script>
 
 <Page>
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<Block>
-       <h2 class="title"> Selecciona la denuncia que quieres hacer:
-    </h2>
-    </Block>
+	<Title title="Selecciona la denuncia que quieres hacer:" />
+	<Notify text="Página en construcción" toastOpened={open}/>
 	<Block outlineIos class="space-y-2">
-		<Button>Ruidos molestos</Button>
+		<Button onClick={() => open = true}>Ruidos molestos</Button>
 		<Button onClick={() => goRoute('beach_report_contamination', {id})}>Contaminación</Button>
-		<Button>Vehículos en la playa</Button>
+		<Button onClick={() => open = true }>Vehículos en la playa</Button>
 		<Button onClick={() => goRoute('beach_report_fauna', {id})}>Maltrato de fauna silvestre</Button>
 		<Button onClick={() => goRoute('beach_report_block', {id})}>Acceso bloqueado</Button>
 	</Block>
@@ -28,12 +25,6 @@
 
 
 <style>
-	.title {
-		margin-top: 4.5rem;
-		font-size: 2rem;
-		line-height: 1.5;
-
-	}
 	.subtitle {
 		font-size: 1.8rem;
 		text-align: center;

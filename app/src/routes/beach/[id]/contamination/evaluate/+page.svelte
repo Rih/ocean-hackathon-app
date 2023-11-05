@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
 	import { BEACHES } from '$lib/data';
+	import Title from '$lib/components/Title.svelte';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
@@ -18,7 +19,7 @@
 </script>
 
 <Page>
-	<h2 class="title">¿Sabes qué es la Eco-ansiedad?</h2>
+	<Title title="¿Sabes qué es la Eco-ansiedad?" />
 	<Block outlineIos class="space-y-2">
 		<p class="subtitle">
 			La eco-ansiedad es una respuesta común a la crisis ambiental que se gatilla al observar
@@ -73,11 +74,7 @@
 	.smile::before {
 		content: '\1F601';
 	}
-	.title {
-		margin-top: 4.5rem;
-		font-size: 2rem;
-		text-align: center;
-	}
+	
 	.subtitle {
 		font-size: 1.8rem;
 		text-align: center;

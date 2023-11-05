@@ -4,6 +4,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
+	import Title from '$lib/components/Title.svelte';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
@@ -12,7 +13,7 @@
 </script>
 
 <Page>
-	<h2 class="title">Estado de contaminación de playa {beach.title}</h2>
+	<Title title={`Estado de contaminación de playa ${beach.title}`} justify="left" />
 	<Block outlineIos class="space-y-2">
 		<div class="grid grid-cols-2 gap-x-8">
 			<div>
@@ -62,10 +63,6 @@
 </Page>
 
 <style>
-	.title {
-		margin-top: 4.5rem;
-		font-size: 2rem;
-	}
 	.subtitle {
 		font-size: 1.8rem;
 		text-align: center;

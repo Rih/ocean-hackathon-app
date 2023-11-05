@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import Title from '$lib/components/Title.svelte';
 	import { BEACHES, type Beach } from '$lib/data';
 	import { goBack, goRoute } from '@utils/routes';
 	import {
@@ -56,10 +57,12 @@
 </script>
 
 <Page>
-	<h1 class="title">¿Qué playa quieres visitar hoy?</h1>
-	<Navbar title="Escribe el nombre de la playa acá...">
+	<Title title="" />
+	<Navbar title="Buscador de Playas">
 		<Searchbar
 			slot="subnavbar"
+			label="Buscar"
+			placeholder="Escribe el nombre de la playa acá..."
 			onInput={handleSearch}
 			value={searchQuery}
 			onClear={handleClear}
@@ -72,7 +75,7 @@
 	</Navbar>
 
 	<List strong insetMaterial outlineIos>
-		<span>Listado de playas:</span>
+		<!-- <span>Listado de playas:</span> -->
 		{#each filteredItems as item (item.id)}
 			<ListItem link title={item.title} touchRipple onClick={() => onBeachSelected(item.id)} />
 		{:else}
@@ -86,11 +89,7 @@
 </Page>
 
 <style>
-	.title {
-		margin-top: 5rem;
-		text-align: center;
-		font-size: 1.5rem;
-	}
+	
 	span {
 		padding: 3px;
 		margin-left: 14px;

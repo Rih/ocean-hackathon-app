@@ -4,6 +4,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
+	import Title from '$lib/components/Title.svelte';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
@@ -12,7 +13,7 @@
 </script>
 
 <Page>
-	<h2 class="title">Contaminación</h2>
+	<Title title="Contaminación" justify="left" />
 	<Block outlineIos class="space-y-2">
 		<p class="subtitle">
 			La ley chilena prohibe el vertimiento o deposición de cualquier tipo de contaminante al suelo,
@@ -46,11 +47,6 @@
 </Page>
 
 <style>
-	.title {
-		margin-top: 4.5rem;
-		font-size: 2rem;
-		text-align: center;
-	}
 	.subtitle {
 		font-size: 1.8rem;
 		text-align: center;

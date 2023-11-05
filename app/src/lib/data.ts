@@ -27,6 +27,15 @@ export const BEACHES: Beach[] = [
 export const CATEGORY_FLORA = 1;
 export const CATEGORY_FAUNA = 2;
 
+export const CATEGORIES: Category[] = [
+    {
+        id: CATEGORY_FLORA, text: 'Flora',
+    },
+    {
+        id: CATEGORY_FAUNA, text: 'Fauna',
+    },
+]
+
 export const ENTITIES: Entity[] = [
     { id: 1, name: 'Aves', categoryId: CATEGORY_FAUNA, },
     { id: 2, name: 'Mamíferos', categoryId: CATEGORY_FAUNA, },
@@ -36,6 +45,10 @@ export const ENTITIES: Entity[] = [
     { id: 6, name: 'Plantas', categoryId: CATEGORY_FLORA, },
 ];
 
+export interface Category {
+    id: number;
+    text: string;
+}
 
 export interface Catalog {
     id: number;
@@ -60,10 +73,28 @@ export enum StatusConservation {
 export const CATALOG: Catalog[] = [
     {
         id: 1,
+        name: 'Gaviota',
+        scientific_name: 'Gaviota thagus',
+        image: '',
+        details: 'La gaviota es un ave marina costera. Esta especie es endémica de la Corriente de  Humboldt. Se alimenta principalmente de peces pequeños, como la anchoveta. Es común verlo cerca de caleta de pescadores, muelles, y roqueríos',
+        conservation_status: StatusConservation.ALMOST_THREATENED,
+        entityId: 1
+    },
+    {
+        id: 3,
         name: 'Pelícano',
         scientific_name: 'Pelecanus thagus',
         image: '',
         details: 'El pelícano es un ave marina costera. Esta especie es endémica de la Corriente de  Humboldt. Se alimenta principalmente de peces pequeños, como la anchoveta. Es común verlo cerca de caleta de pescadores, muelles, y roqueríos',
+        conservation_status: StatusConservation.ALMOST_THREATENED,
+        entityId: 1
+    },
+    {
+        id: 4,
+        name: 'Zarapito',
+        scientific_name: 'Zarapitus thagus',
+        image: '',
+        details: 'El Zarapito es un ave marina costera. Esta especie es endémica de la Corriente de  Humboldt. Se alimenta principalmente de peces pequeños, como la anchoveta. Es común verlo cerca de caleta de pescadores, muelles, y roqueríos',
         conservation_status: StatusConservation.ALMOST_THREATENED,
         entityId: 1
     },
