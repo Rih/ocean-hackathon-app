@@ -14,6 +14,7 @@ services:
       - frontend
     ports:
       - 3005:5173
+      - 3006:4173
     command: sh -c "pnpm run devhost"
     # restart: always
     tty: true

@@ -1,12 +1,27 @@
 {
-    "short_name": "Playa",
-    "name": "vamos-a-la-playa",
-    "start_url": "/",
-    "icons": [],
-    "backgorund-color": "#3367D6",
-    "display": "standalone",
+    "theme_color": "#00B0F0",
+    "background_color": "#FFD686",
+    "icons": [
+        {
+            "purpose": "maskable",
+            "sizes": "512x512",
+            "src": "icon512_maskable.png",
+            "type": "image/png"
+        },
+        {
+            "purpose": "any",
+            "sizes": "512x512",
+            "src": "icon512_rounded.png",
+            "type": "image/png"
+        }
+    ],
     "orientation": "portrait",
-    "scope": "/",
-    "theme_color": "#3367D6",
-    "description": "Vamos a la playa",
+    "display": "standalone",
+    "dir": "auto",
+    "lang": "es-419",
+    "name": "Vamos a la playa",
+    "short_name": "vamos-a-la-playa",
+    "description": "An MVP for flora and fauna conservation in beaches",
+    "start_url": "/",
+    "scope": "/"
 }

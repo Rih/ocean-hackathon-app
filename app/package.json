@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"devhost": "vite dev --host 0.0.0.0",
+		"previewhost": "vite preview --host 0.0.0.0",
 		"build": "vite build",
 		"preview": "vite preview",
 		"production": "pm2-runtime ecosystem.config.cjs --env production",

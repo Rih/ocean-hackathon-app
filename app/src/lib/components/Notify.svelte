@@ -3,7 +3,7 @@
 
 	export let position: string = 'center';
 	export let text: string = '';
-	export let toastOpened = false;
+	export let toastOpened: boolean = false;
 	const openToast = (setter: any) => {
 		// close other toast
 		let toastOpened = false;
