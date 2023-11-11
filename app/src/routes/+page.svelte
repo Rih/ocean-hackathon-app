@@ -41,7 +41,7 @@
 	</Block>
 	<Block outlineIos class="space-y-2"> </Block>
 	<Footer>
-		<Button onClick={onExit}>Salir de la app</Button>
+		<!-- <Button onClick={onExit}>Salir de la app</Button> -->
 	</Footer>
 </Page>
 

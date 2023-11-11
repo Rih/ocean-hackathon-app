@@ -4,11 +4,13 @@ import { writable } from 'svelte/store';
 export interface NavigateStore {
 	menu: boolean;
 	back: boolean;
+	loading: boolean;
 }
 
 const TAGS_INIT: NavigateStore = {
 	menu: false,
 	back: false,
+	loading: false,
 };
 
 const { subscribe, set, update } = writable(TAGS_INIT);
@@ -29,8 +31,16 @@ const shouldBack = (value: boolean) => update((state) => {
 	}
 });
 
+const setLoading = (value: boolean) => update((state) =>{
+	return {
+		...state,
+		loading: value,
+	}
+})
+
 export default {
 	subscribe,
 	toggleMenu,
 	shouldBack,
+	setLoading,
 };

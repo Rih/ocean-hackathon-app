@@ -39,6 +39,11 @@ export const ROUTES: Route[] = [
         uri: '/beach/[id]/contamination',
     },
     {
+        name: 'beach_evaluation',
+        title: 'Evaluaciones',
+        uri: '/beach/[id]/evaluations',
+    },
+    {
         name: 'beach_contamination_evaluate',
         title: 'Evalúa tu playa',
         uri: '/beach/[id]/contamination/evaluate',

@@ -24,6 +24,20 @@
 <Page>
 	<Title title="Registro de organismo" justify="left" />
 	<Block>
+		<p>
+			Aquí puedes ingresar tus avistamientos de flora y fauna nativa. Para esto debes considerar:
+		</p>
+		<p>
+			-Tu registro debe ser acompañado por una fotografía lo más nítida posible para que sea validado por nuestro equipo
+		</p>
+		<p>
+			-Asegúrate de registrar la especie correcta en la playa correcta, ya que tus registros alimentan nuestra base de datos para futuros usuarios
+		</p>
+		<p>
+			-Ingresar fecha y  coordenadas  del registro 
+		</p>
+	</Block>
+	<Block>
 		<List strongIos insetIos>
 			<ListInput
 				label="Playa"

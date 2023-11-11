@@ -1,7 +1,11 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import Loader from '$lib/components/Loader.svelte';
+	import Map from '$lib/components/Map.svelte';
 	import Title from '$lib/components/Title.svelte';
-	import { BEACHES, type Beach } from '$lib/data';
+	import { BEACHES } from '$lib/data';
+	import type { Beach } from '$lib/data/beach';
+	import { BeachService } from '$lib/services/BeachService';
 	import { goBack, goRoute } from '@utils/routes';
 	import {
 		Block,
@@ -15,10 +19,12 @@
 		Page,
 		Searchbar
 	} from 'konsta/svelte';
+	import { getContext, onMount } from 'svelte';
 
+	const { navigateState } = getContext<any>('navigateStore');
 	let searchQuery = '';
 	let focused: boolean = false;
-	const beaches: Beach[] = BEACHES;
+	let beaches: Beach[] = [];
 
 	const handleSearch = (e) => {
 		searchQuery = e.target.value;
@@ -44,15 +50,20 @@
 	};
 
 	let filteredItems: Beach[] = [];
+	const service = new BeachService();
+	onMount(async () => {
+		navigateState.setLoading(true);
+		const items = await service.fetchData({}, 1);
+		navigateState.setLoading(false);
+		beaches = items.data;
+	});
 	/* eslint-disable */
 	$: {
 		filteredItems = searchQuery
 			? beaches.filter((item: Beach) =>
 					item.title.toLowerCase().includes(searchQuery.toLowerCase())
 			  )
-			: /*focused
-			? beaches
-			: */ [];
+			: beaches;
 	}
 </script>
 
@@ -82,6 +93,11 @@
 			<ListItem title="Sin resultados" />
 		{/each}
 	</List>
+	<Loader />
+	<Block>
+		<p>O también puedes navegar en el mapa aquí...</p>
+		<Map />
+	</Block>
 	<Block>
 		<Button onClick={() => goRoute('manual', {})}>Manual de buenas prácticas</Button>
 	</Block>
