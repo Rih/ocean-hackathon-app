@@ -1,11 +1,12 @@
 <script>
 	import Footer from '$lib/components/Footer.svelte';
+	import TItle from '$lib/components/Title.svelte';
 	import { goRoute, goBack } from '@utils/routes';
 	import { Block, BlockFooter, Button, List, ListItem, Page } from 'konsta/svelte';
 </script>
 
 <Page>
-	<h1 class="title">Manual de Buenas prácticas</h1>
+	<TItle title="Manual de Buenas prácticas" />
 
 	<p class="subtitle">
 		Sigue estos consejos para disfrutar de una jornada respetuosa y agradable en la playa
@@ -55,12 +56,6 @@
 </Page>
 
 <style>
-	.title {
-		margin-top: 4rem;
-		font-size: 2rem;
-		font-weight: 800;
-		padding: 2rem;
-	}
 	.subtitle {
 		font-size: 1.8rem;
 		text-align: justify;

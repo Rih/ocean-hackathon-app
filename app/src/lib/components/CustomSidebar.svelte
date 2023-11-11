@@ -10,9 +10,21 @@
 	let subs = navigateState.subscribe((value: NavigateStore) => {
 		leftPanelOpened = value.menu;
 	});
+
+	const goMenu = (name: string) => {
+		goRoute(name, {})
+		navigateState.toggleMenu();
+	};
+
+	const onClose = () => {
+		navigateState.toggleMenu();
+		leftPanelOpened = false
+	};
+
 	const excluded_routes = [
+		'beach_bio_entity_organism',
 		'beach_bio_entity', 'beach_bio_form', 'beach_bio_photo',
-		'beach_contamination', 'beach_index','beach_bio_index', 
+		'beach_contamination', 'beach_index','beach_bio_index', 'beach_evaluation',
 		'beach_contamination_evaluate', 'beach_contamination_knowmore',
 		'beach_report_contamination', 'beach_report_fauna', 'beach_report_block',
 		'beach_report', 'beach_bio_fauna', 'beach_bio_flora',
@@ -24,7 +36,7 @@
 	<Panel side="left" opened={leftPanelOpened} onBackdropClick={navigateState.toggleMenu}>
 		<Page>
 			<Navbar title="Vamos a la playa">
-				<Link slot="right" iconOnly navbar onClick={() => (leftPanelOpened = false)}>
+				<Link slot="right" iconOnly navbar onClick={() => onClose()}>
 					<Icon badgeColors={{ bg: 'bg-red-500' }}>
 						<CloseOutline />
 					</Icon>
@@ -32,7 +44,7 @@
 			</Navbar>
 			<List>
 				{#each routes as route}
-					<ListItem href="#" onClick={() => goRoute(route.name, {})} title={route.title} />
+					<ListItem href="#" onClick={() => goMenu(route.name)} title={route.title} />
 				{/each}
 			  </List>
 		</Page>

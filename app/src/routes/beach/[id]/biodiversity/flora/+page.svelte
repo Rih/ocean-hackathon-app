@@ -3,7 +3,8 @@
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
 	import { goRoute } from '@utils/routes';
-	import { CATEGORY_FLORA, ENTITIES, type Entity } from '$lib/data';
+	import { CATEGORY_FLORA } from '$lib/data/category';
+	import { ENTITIES, type Entity } from '$lib/data/entity';
 
 	const id = Number($page.params.id);
 	console.log({ id });

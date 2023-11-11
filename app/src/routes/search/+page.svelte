@@ -1,6 +1,11 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
-	import { BEACHES, type Beach } from '$lib/data';
+	import Loader from '$lib/components/Loader.svelte';
+	import Map from '$lib/components/Map.svelte';
+	import Title from '$lib/components/Title.svelte';
+	import { BEACHES } from '$lib/data';
+	import type { Beach } from '$lib/data/beach';
+	import { BeachService } from '$lib/services/BeachService';
 	import { goBack, goRoute } from '@utils/routes';
 	import {
 		Block,
@@ -14,10 +19,12 @@
 		Page,
 		Searchbar
 	} from 'konsta/svelte';
+	import { getContext, onMount } from 'svelte';
 
+	const { navigateState } = getContext<any>('navigateStore');
 	let searchQuery = '';
 	let focused: boolean = false;
-	const beaches: Beach[] = BEACHES;
+	let beaches: Beach[] = [];
 
 	const handleSearch = (e) => {
 		searchQuery = e.target.value;
@@ -43,23 +50,30 @@
 	};
 
 	let filteredItems: Beach[] = [];
+	const service = new BeachService();
+	onMount(async () => {
+		navigateState.setLoading(true);
+		const items = await service.fetchData({}, 1);
+		navigateState.setLoading(false);
+		beaches = items.data;
+	});
 	/* eslint-disable */
 	$: {
 		filteredItems = searchQuery
 			? beaches.filter((item: Beach) =>
 					item.title.toLowerCase().includes(searchQuery.toLowerCase())
 			  )
-			: /*focused
-			? beaches
-			: */ [];
+			: beaches;
 	}
 </script>
 
 <Page>
-	<h1 class="title">¿Qué playa quieres visitar hoy?</h1>
-	<Navbar title="Escribe el nombre de la playa acá...">
+	<Title title="" />
+	<Navbar title="Buscador de Playas">
 		<Searchbar
 			slot="subnavbar"
+			label="Buscar"
+			placeholder="Escribe el nombre de la playa acá..."
 			onInput={handleSearch}
 			value={searchQuery}
 			onClear={handleClear}
@@ -72,13 +86,18 @@
 	</Navbar>
 
 	<List strong insetMaterial outlineIos>
-		<span>Listado de playas:</span>
+		<!-- <span>Listado de playas:</span> -->
 		{#each filteredItems as item (item.id)}
 			<ListItem link title={item.title} touchRipple onClick={() => onBeachSelected(item.id)} />
 		{:else}
 			<ListItem title="Sin resultados" />
 		{/each}
 	</List>
+	<Loader />
+	<Block>
+		<p>O también puedes navegar en el mapa aquí...</p>
+		<Map />
+	</Block>
 	<Block>
 		<Button onClick={() => goRoute('manual', {})}>Manual de buenas prácticas</Button>
 	</Block>
@@ -86,11 +105,7 @@
 </Page>
 
 <style>
-	.title {
-		margin-top: 5rem;
-		text-align: center;
-		font-size: 1.5rem;
-	}
+	
 	span {
 		padding: 3px;
 		margin-left: 14px;

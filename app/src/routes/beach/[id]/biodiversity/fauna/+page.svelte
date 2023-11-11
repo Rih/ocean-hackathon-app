@@ -3,7 +3,9 @@
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
 	import { goRoute } from '@utils/routes';
-	import { CATEGORY_FAUNA, ENTITIES, type Entity } from '$lib/data';
+	import { CATEGORY_FAUNA } from '$lib/data/category';
+	import { ENTITIES } from '$lib/data/entity';
+	import type { Entity } from '$lib/data/entity';
 
 	const id = Number($page.params.id);
 	console.log({ id });

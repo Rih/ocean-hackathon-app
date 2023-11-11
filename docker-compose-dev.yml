@@ -5,15 +5,16 @@ services:
     image: ocean/hackathon:v1
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     volumes:
       - ./bin:/usr/local/scripts
-      - ./vamos-a-la-playa:/app
+      - ./app:/app
       - /app/node_modules
     networks:
       - frontend
     ports:
       - 3005:5173
+      - 3006:4173
     command: sh -c "pnpm run devhost"
     # restart: always
     tty: true

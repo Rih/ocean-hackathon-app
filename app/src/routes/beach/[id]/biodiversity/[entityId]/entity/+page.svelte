@@ -3,7 +3,9 @@
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
 	import { goRoute } from '@utils/routes';
-	import { CATEGORY_FAUNA, CATALOG, type Catalog } from '$lib/data';
+	import { CATEGORY_FAUNA } from '$lib/data/category';
+	import { CATALOG } from '$lib/data/catalog';
+	import type { Catalog } from '$lib/data/catalog';
 
 	const id = Number($page.params.id);
 	const entityId = Number($page.params.entityId);

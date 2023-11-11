@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "Compiling preview server..."
+echo "Compiling server..."
 pnpm run build

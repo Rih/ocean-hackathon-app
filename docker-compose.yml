@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app_ocean:
+    container_name: node_ocean
+    image: ocean/hackathon:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./bin:/usr/local/scripts
+      - ./app:/app
+      - /app/node_modules
+    networks:
+      - frontend
+    ports:
+      - 7005:4000
+    command: sh -c "pnpm run build && pnpm run production"
+    # restart: always
+    tty: true
+networks:
+  frontend:
+      driver: bridge

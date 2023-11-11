@@ -1,6 +1,7 @@
 <script lang="ts">
+	import Footer from '$lib/components/Footer.svelte';
+	import Title from '$lib/components/Title.svelte';
 	import { goRoute } from '@utils/routes';
-
 	import { Button, Block, Page } from 'konsta/svelte';
 
 	const onEnter = () => {
@@ -20,10 +21,10 @@
 </script>
 
 <Page>
-	<Block strong outlineIos class="space-y-8">
-		<p class="title">Vamos a la Playa</p>
+	<Title title="Vamos a la Playa" strong justify="center" />
 
-		<p class="subtitle">Una app para promover el cuidado y conservación de las playas de Chile</p>
+	<Block>
+		<p class="subtitle">Una app para promover el cuidado y conservación de las playas de Chile!!!</p>
 	</Block>
 
 	<Block outlineIos class="space-y-2">
@@ -38,15 +39,13 @@
 			</Button>
 		</div>
 	</Block>
-	<Button onClick={onExit}>Salir de la app</Button>
+	<Block outlineIos class="space-y-2"> </Block>
+	<Footer>
+		<!-- <Button onClick={onExit}>Salir de la app</Button> -->
+	</Footer>
 </Page>
 
 <style>
-	.title {
-		margin-top: 4rem;
-		font-size: 3rem;
-		text-align: center;
-	}
 	.subtitle {
 		font-size: 2.2rem;
 		text-align: center;
