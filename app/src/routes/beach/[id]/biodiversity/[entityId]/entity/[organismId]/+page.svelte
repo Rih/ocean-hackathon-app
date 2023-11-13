@@ -20,7 +20,7 @@
 	<h2 class="subtitle"> {individual.scientific_name}</h2>
 	<Block outlineIos class="space-y-2">
 		<div>
-			<img src={`/playas/${individual.image}`} alt="imagen" />
+			<img src={`${individual.image}`} alt={`imagen de ${individual.name}`} />
 			Autor: {individual.author}
 		</div>
 	</Block>
