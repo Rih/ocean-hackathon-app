@@ -21,7 +21,10 @@
 	<Block>
 		<p class="subtitle">{beach.details}</p>
 	</Block>
-	¿Qué quieres saber?
+	
+	<Block>
+		<span>¿Qué quieres saber?</span>
+	</Block>
 
 	<Block>
 		<Button onClick={() => goRoute('beach_bio_index', { id })}>Conocer la biodiversidad</Button>

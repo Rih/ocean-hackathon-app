@@ -20,7 +20,7 @@
     "dir": "auto",
     "lang": "es-419",
     "name": "Vamos a la playa",
-    "short_name": "vamos-a-la-playa",
+    "short_name": "Vamos a la playa",
     "description": "An MVP for flora and fauna conservation in beaches",
     "start_url": "/",
     "scope": "/"

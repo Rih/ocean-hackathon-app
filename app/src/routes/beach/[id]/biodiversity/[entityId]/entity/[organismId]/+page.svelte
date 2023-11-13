@@ -6,6 +6,7 @@
 	import { goRoute } from '@utils/routes';
 	import StateIucn from '$lib/components/StateIUCN.svelte';
 	import { COLORS, type Color } from "$lib";
+	import { STATES_CONSERVATION } from '$lib/data/catalog';
 
     const id = Number($page.params.id);
 	const entityId = Number($page.params.entityId);
@@ -19,7 +20,8 @@
 	<h2 class="subtitle"> {individual.scientific_name}</h2>
 	<Block outlineIos class="space-y-2">
 		<div>
-			<img src={individual.image} alt="imagen" />
+			<img src={`/playas/${individual.image}`} alt="imagen" />
+			Autor: {individual.author}
 		</div>
 	</Block>
 	<Block outlineIos class="space-y-2">
@@ -38,23 +40,18 @@
 	</Block>
 
 	<Block>
-		<p>Casi amenazado</p>
+		<p>{STATES_CONSERVATION[individual.conservation_status].text}</p>
 	</Block>
 	<Block outlineIos class="space-y-2 text-center" >
-		<Block class="grid grid-cols-4 gap-x-8 oval-container">
-			<StateIucn color={COLORS.GRAY} text="DD"  />
-			<StateIucn color={COLORS.GREEN} text="LC"  />
-			<StateIucn color={COLORS.LIGHTYELLOW} text="CA" active />
-			<StateIucn color={COLORS.ORANGE} text="VU"  />
-			
+		<Block class="grid grid-cols-3 gap-x-8 gap-y-3 oval-container">
+			{#each Object.entries(STATES_CONSERVATION) as [c, s], i}
+				<StateIucn 
+					color={s.color} 
+					text={c} 
+					active={c == individual.conservation_status }  />
+			{/each}
 		</Block>
-		<Block class="grid grid-cols-4 gap-x-8 oval-container">
-
-			<StateIucn color={COLORS.LIGHTRED} text="EN"  />
-			<StateIucn color={COLORS.RED} text="CR"  />
-			<StateIucn color={COLORS.VIOLET} text="EW"  />
-			<StateIucn color={COLORS.BLACK} text="EX"  />
-		</Block>
+		
 	</Block>
 
 	<Footer />

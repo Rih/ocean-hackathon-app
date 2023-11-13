@@ -5,6 +5,7 @@
 	import { goRoute } from '@utils/routes';
 	import { CATEGORY_FLORA } from '$lib/data/category';
 	import { ENTITIES, type Entity } from '$lib/data/entity';
+	import { CATALOG } from '$lib/data/catalog';
 
 	const id = Number($page.params.id);
 	console.log({ id });
@@ -17,7 +18,7 @@
 		}
 		return chunkedArray;
 	};
-	const entities = ENTITIES.filter((e) => e.categoryId == CATEGORY_FLORA);
+	const entities = ENTITIES.filter((e) => e.categoryId == CATEGORY_FLORA && Object.values(CATALOG).find( c => e.id === c.entityId));
 	const dataEntities: Entity[][] = chunkArrayIntoPairs(entities);
 </script>
 

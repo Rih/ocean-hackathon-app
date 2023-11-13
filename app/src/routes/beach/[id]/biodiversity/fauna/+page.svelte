@@ -6,6 +6,7 @@
 	import { CATEGORY_FAUNA } from '$lib/data/category';
 	import { ENTITIES } from '$lib/data/entity';
 	import type { Entity } from '$lib/data/entity';
+	import { CATALOG } from '$lib/data/catalog';
 
 	const id = Number($page.params.id);
 	console.log({ id });
@@ -18,7 +19,7 @@
 		}
 		return chunkedArray;
 	};
-	const entities = ENTITIES.filter((e) => e.categoryId == CATEGORY_FAUNA);
+	const entities = ENTITIES.filter((e) => e.categoryId == CATEGORY_FAUNA && Object.values(CATALOG).find( c => e.id === c.entityId));
 	const dataEntities: Entity[][] = chunkArrayIntoPairs(entities);
 </script>
 

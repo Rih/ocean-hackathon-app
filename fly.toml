@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for vamos-a-la-playa on 2023-11-03T23:04:45-03:00
+# fly.toml app configuration file generated for vamos-a-la-playa on 2023-11-12T18:47:01-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -7,6 +7,7 @@ app = "vamos-a-la-playa"
 primary_region = "scl"
 
 [build]
+  dockerfile = "Dockerfile"
 
 [http_service]
   internal_port = 3000
@@ -16,4 +17,3 @@ primary_region = "scl"
   min_machines_running = 0
   max_machines_running = 2
   processes = ["app"]
-
