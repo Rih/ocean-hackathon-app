@@ -12,5 +12,6 @@ export const ENTITIES: Entity[] = [
     { id: 3, name: 'Reptiles', categoryId: CATEGORY_FAUNA, },
     { id: 4, name: 'Anfibios', categoryId: CATEGORY_FAUNA, },
     { id: 5, name: 'Invertebrados marinos', categoryId: CATEGORY_FAUNA, },
-    { id: 6, name: 'Plantas', categoryId: CATEGORY_FLORA, },
+    { id: 6, name: 'Plantas terrestres', categoryId: CATEGORY_FLORA, },
+    { id: 7, name: 'Algas', categoryId: CATEGORY_FLORA, },
 ];

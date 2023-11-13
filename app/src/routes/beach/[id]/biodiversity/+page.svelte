@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Block, Button, Fab, Page } from 'konsta/svelte';
 	import { page } from '$app/stores';
-	import Footer from '$lib/components/Footer.svelte';
+	import AppCard from '$lib/components/AppCard.svelte';
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
 	import { PlusOutline } from 'flowbite-svelte-icons';
@@ -10,6 +10,18 @@
 	const beach = BEACHES.find((b) => b.id == id)!;
 
 	console.log({ id });
+	const biodiversity = [
+		{
+			routeName: 'beach_bio_flora',
+			title: 'Flora',
+			beachId: id,
+		},
+		{
+			routeName: 'beach_bio_fauna',
+			title: 'Fauna',
+			beachId: id,
+		}
+	]
 </script>
 
 <Page>
@@ -18,6 +30,9 @@
 	</h2>
 	<Block outlineIos class="space-y-2">
 		<div class="grid grid-cols-2 gap-x-4">
+			<!-- {#each biodiversity as b (b.title)}
+				<AppCard title={b.title} routeName={b.routeName}, beachId={b.beachId} />
+			{/each} -->
 			<Button class="font-bold" onClick={() => goRoute('beach_bio_flora', { id })} large outline>
 				Flora
 			</Button>

@@ -24,7 +24,7 @@
 	<Title title="Vamos a la Playa" strong justify="center" />
 
 	<Block>
-		<p class="subtitle">Una app para promover el cuidado y conservación de las playas de Chile!!!</p>
+		<p class="subtitle">Una app para promover el cuidado y conservación de las playas de Chile!</p>
 	</Block>
 
 	<Block outlineIos class="space-y-2">

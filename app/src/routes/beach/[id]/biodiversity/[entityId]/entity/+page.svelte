@@ -11,7 +11,7 @@
 	const entityId = Number($page.params.entityId);
 	console.log({ id });
 
-	const catalogs = CATALOG.filter((e) => e.entityId == entityId);
+	const catalogs = CATALOG.filter((e) => e.entityId == entityId && e.beachId == id);
 	const dataEntities: Catalog[] = catalogs;
     console.log({dataEntities})
 </script>

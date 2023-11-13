@@ -9,6 +9,7 @@
 	import { KonstaProvider } from 'konsta/svelte';
 	import Sidebar from '$lib/components/CustomSidebar.svelte';
 	import AppHeader from '$lib/components/AppHeader.svelte';
+	import AppInstall from '$lib/components/AppInstall.svelte';
 
 	onMount(async () => {
 		if (pwaInfo) {
@@ -49,6 +50,7 @@
 					<Sidebar />
 					<div class="child">
 						<AppHeader />
+						<AppInstall />
 						<slot />
 					</div>
 				</AppLayout>
@@ -57,7 +59,7 @@
 	</App>
 </KonstaProvider>
 
-{#await import('$lib/ReloadPrompt.svelte') then { default: ReloadPrompt }}
+{#await import('$lib/components/ReloadPrompt.svelte') then { default: ReloadPrompt }}
 	<ReloadPrompt />
 {/await}
 
