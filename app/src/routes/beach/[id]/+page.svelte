@@ -5,6 +5,7 @@
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
 	import Title from '$lib/components/Title.svelte';
+	import AppGallery from '$lib/components/AppGallery.svelte';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
@@ -15,15 +16,24 @@
 <Page>
 	<Title title={beach.title} justify="left" />
 	<Block>
-		<p>{beach.region}</p>
+		<AppGallery imageSrc={beach.img} imageAlt={`imagen de ${beach.title}`}  />
+	</Block>
+	<Block>
+		<div class="">
+			<p>{beach.region}</p>
+		</div>
 	</Block>
 
 	<Block>
-		<p class="subtitle">{beach.details}</p>
+		<div class="">
+			<p class="subtitle">{beach.details}</p>
+		</div>
 	</Block>
 	
 	<Block>
-		<span>¿Qué quieres saber?</span>
+		<div class="">
+			<span>¿Qué quieres saber?</span>
+		</div>
 	</Block>
 
 	<Block>
@@ -42,14 +52,18 @@
 
 
 <style>
-
+	
+	span{
+		font-size: 22px;
+		padding: 4px;
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
 	.subtitle {
-		font-size: 1.8rem;
-		text-align: center;
-		color: black;
+		font-size: 22px;
+		text-align: justify;
 		line-height: 1.5;
 		padding-top: 3rem;
 		padding-bottom: 3rem;
-		background-color: #B6D7A8;
 	}
 </style>

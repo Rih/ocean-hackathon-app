@@ -6,15 +6,25 @@
     export let justify: string = 'center';
 </script>
 
-<Block {strong} outlineIos>
-    <h1 class={`title ${justify}`}>{title}</h1>
+<Block class="w-full" outlineIos>
+    <div class="container">
+        <h1 class={`title ${justify}`}>{title}</h1>
+    </div>
 </Block>
 
 <style>
+
+    .container{
+        background: rgba(0,0,0,0.5);
+    }
     .title {
         margin-top: 4rem;
-        font-size: 3rem;
-        line-height: 3rem;
+        font-size: 22px;
+        line-height: 2.0;
+        color: rgb(238, 227, 227);
+        border-radius: 20%;
+        text-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+        background: rgba(0,0,0,0);
     }
     .left{
         text-align: left;

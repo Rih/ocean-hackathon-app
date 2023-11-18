@@ -27,8 +27,8 @@
 		<span class="ack-to text-center"> Agradecemos a </span>
 	</Block>
 	<Block>
-	    <img class="image" src="" alt="logo1" width="100" /> 
-	    <img class="image" src="./logoNewDev.png" alt="logo2 newdev" /> 
+	    <img class="image" src="./logoCB.png" alt="logo cientificos de la basura" /> 
+	    <img class="image" src="./logoNewDev.png" alt="logo newdev cooperativa"  /> 
   	</Block>
 	<Block>
 		<p class="contribution">Por su valioso aporte a esta aplicación</p>

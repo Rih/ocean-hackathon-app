@@ -26,7 +26,7 @@
 			<div class="grid grid-cols-2 gap-x-4">
 				<img src="" alt={row.name} />
 				<Button
-					onClick={() => goRoute('beach_bio_entity_organism', { id, entityId, organismId: row.id })}
+					onClick={() => goRoute('beach_bio_entity_organism', { id, organismId: row.id })}
 				>
 					Saber más
 				</Button>

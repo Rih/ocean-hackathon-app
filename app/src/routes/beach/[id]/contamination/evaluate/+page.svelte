@@ -24,28 +24,32 @@
 <Page>
 	<Title title="¿Sabes qué es la Eco-ansiedad?" />
 	<Block outlineIos class="space-y-2">
-		<p class="subtitle">
-			La eco-ansiedad es una respuesta común a la crisis ambiental que se gatilla al observar
-			desastres ambientales, o ver espacios de uso común muy contaminados, entre otros motivos. La
-			eco-ansiedad se puede manifestar como preocupación, pesimismo, tristeza, miedo e impotencia.
-			Es una reacción esperable ante el inevitable cambio climático de origen antropogénico. Puede
-			motivar a las personas a tomar medidas proambientales, como adoptar un estilo de vida
-			sostenible, apoyar políticas de conservación, o tomar medidas locales de descontaminación. Al
-			hablar abiertamente sobre la eco ansiedad, podemos abordar mejor la crisis ambiental y
-			trabajar juntos para proteger nuestro entorno natural.
-		</p>
+		<div class="container">
+			<p class="subtitle">
+				La eco-ansiedad es una respuesta común a la crisis ambiental que se gatilla al observar
+				desastres ambientales, o ver espacios de uso común muy contaminados, entre otros motivos. La
+				eco-ansiedad se puede manifestar como preocupación, pesimismo, tristeza, miedo e impotencia.
+				Es una reacción esperable ante el inevitable cambio climático de origen antropogénico. Puede
+				motivar a las personas a tomar medidas proambientales, como adoptar un estilo de vida
+				sostenible, apoyar políticas de conservación, o tomar medidas locales de descontaminación. Al
+				hablar abiertamente sobre la eco ansiedad, podemos abordar mejor la crisis ambiental y
+				trabajar juntos para proteger nuestro entorno natural.
+			</p>
+		</div>
 	</Block>
 	<Block>
-		<p>
-			Selecciona aquí la categoría que más representa tu sensación durante esta visita a la playa:
-		</p>
+		<div class="container">
+			<p>
+				Selecciona aquí la categoría que más representa tu sensación durante esta visita a la playa:
+			</p>
+		</div>
 	</Block>
 	<Block>
 		<List>
 			{#each emotions as { name, text } (name)}
 				<ListItem>
 					<Link onClick={() => confirmOpened = true }>
-						<i class={`emoji ${name}`} />{text}
+						<i class={`emoji ${name}`} /><span class="container">{text}</span>
 					</Link>
 				</ListItem>
 			{/each}
@@ -95,11 +99,9 @@
 	.subtitle {
 		font-size: 1.8rem;
 		text-align: center;
-		color: black;
 		line-height: 1.5;
 		padding-top: 3rem;
 		padding-bottom: 3rem;
-		background-color: #b6d7a8;
 	}
 	.source {
 		font-style: italic;

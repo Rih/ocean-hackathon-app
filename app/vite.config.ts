@@ -13,7 +13,7 @@ export default defineConfig({
 			/* other pwa options */
 		})
 	],
-
+	// legacy: { buildSsrCjsExternalHeuristics: true },
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}

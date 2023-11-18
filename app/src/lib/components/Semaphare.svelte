@@ -31,7 +31,7 @@
 </div>
 
 
-<style>
+<style lang="postcss">
     :global(.active){
         border: 3px solid rgb(255, 255, 0);
         box-shadow: 0px 0px 25px 25px rgba(1, 93, 103, 0.2);

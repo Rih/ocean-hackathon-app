@@ -69,22 +69,23 @@
 
 <Page>
 	<Title title="" />
-	<Navbar title="Buscador de Playas">
-		<Searchbar
-			slot="subnavbar"
-			label="Buscar"
-			placeholder="Escribe el nombre de la playa acá..."
-			onInput={handleSearch}
-			value={searchQuery}
-			onClear={handleClear}
-			onFocus={handleFocus}
-			onBlur={handleBlur}
-			disableButton
-			disableButtonText="Cancel"
-			onDisable={handleDisable}
-		/>
-	</Navbar>
-
+	<Block>
+		<Navbar title="Buscador de Playas">
+			<Searchbar
+				slot="subnavbar"
+				label="Buscar"
+				placeholder="Escribe el nombre de la playa acá..."
+				onInput={handleSearch}
+				value={searchQuery}
+				onClear={handleClear}
+				onFocus={handleFocus}
+				onBlur={handleBlur}
+				disableButton
+				disableButtonText="Cancel"
+				onDisable={handleDisable}
+			/>
+		</Navbar>
+	</Block>
 	<List strong insetMaterial outlineIos>
 		<!-- <span>Listado de playas:</span> -->
 		{#each filteredItems as item (item.id)}
@@ -95,7 +96,9 @@
 	</List>
 	<Loader />
 	<Block>
-		<p>O también puedes navegar en el mapa aquí...</p>
+		<div class="container">
+			<p>O también puedes navegar en el mapa aquí...</p>
+		</div>
 		<Map />
 	</Block>
 	<Block>
@@ -105,7 +108,6 @@
 </Page>
 
 <style>
-	
 	span {
 		padding: 3px;
 		margin-left: 14px;

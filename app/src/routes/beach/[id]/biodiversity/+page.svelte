@@ -1,54 +1,180 @@
 <script lang="ts">
-	import { Block, Button, Fab, Page } from 'konsta/svelte';
+	import {
+		Block,
+		BlockTitle,
+		Chip,
+		Button,
+		Fab,
+		List,
+		ListItem,
+		Toolbar,
+		Page,
+		Link,
+		Icon,
+		Searchbar,
+		Navbar
+	} from 'konsta/svelte';
 	import { page } from '$app/stores';
-	import AppCard from '$lib/components/AppCard.svelte';
-	import { BEACHES } from '$lib/data';
+	import EntityItem from '$lib/components/EntityItem.svelte';
+	import { BEACHES, CATALOG, ENTITIES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
-	import { PlusOutline } from 'flowbite-svelte-icons';
+	import { PlusOutline, RedoOutline, AdjustmentsHorizontalOutline, CloseOutline } from 'flowbite-svelte-icons';
+	import { CATEGORIES, CATEGORY_FAUNA, CATEGORY_FLORA } from '$lib/data/category';
+	import type { Entity } from '$lib/data/entity';
+	import type { Catalog } from '$lib/data/catalog';
+	import { getContext } from 'svelte';
+	import type { BiodiversityStore } from '$lib/store/biodiversity/biodiversity';
+	import AppCard from '$lib/components/AppCard.svelte';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
 
 	console.log({ id });
-	const biodiversity = [
-		{
-			routeName: 'beach_bio_flora',
-			title: 'Flora',
-			beachId: id,
-		},
-		{
-			routeName: 'beach_bio_fauna',
-			title: 'Fauna',
-			beachId: id,
-		}
-	]
+	const { biodiversityState } = getContext<any>('biodiversityStore');
+	let showFilter: boolean = false;
+	let searchQuery = '';
+	let focused: boolean = false;
+	let entityId: number = 0;
+	let entityName: string = 'Todos';
+	let entities: Entity[] = ENTITIES;
+	let subs = biodiversityState.subscribe((value: BiodiversityStore) => {
+		showFilter = value.showFilter;
+		searchQuery = value.name;
+		entityId = value.entityId;
+		entities = value.entities;
+		entityName =
+			entityId == 0 ? 'Todos' : Object.values(ENTITIES).find((c) => entityId === c.id)?.name!;
+	});
+
+	
+	const handleSearch = (e: any) => {
+		biodiversityState.setName(e.target.value);
+	};
+
+	const handleClear = () => {
+		biodiversityState.setName('');
+	};
+
+	const handleDisable = () => {
+		console.log('Disable');
+	};
+
+	const handleFocus = () => {
+		focused = true;
+	};
+	const handleBlur = () => {
+		focused = false;
+	};
+
+
+	const onEntitySelected = (entityId: number) => {
+		biodiversityState.setEntity(entityId);
+		biodiversityState.setEntities(entityId);
+	};
+
+	const catalogs = CATALOG.filter((e) => (!entityId || e.entityId == entityId) && e.beachId == id);
+	const dataEntitiesCatalog: Catalog[] = catalogs;
+	const setCatalogName = (id: number) => {
+			const name = Object.values(CATALOG).find( (c) => c.id == id)!.name
+			return name;
+
+	}
 </script>
 
 <Page>
-	<h2 class="title">
-		Biodiversidad en playa {beach.title}
-	</h2>
-	<Block outlineIos class="space-y-2">
-		<div class="grid grid-cols-2 gap-x-4">
-			<!-- {#each biodiversity as b (b.title)}
-				<AppCard title={b.title} routeName={b.routeName}, beachId={b.beachId} />
-			{/each} -->
-			<Button class="font-bold" onClick={() => goRoute('beach_bio_flora', { id })} large outline>
-				Flora
-			</Button>
-			<Button class="font-bold" onClick={() => goRoute('beach_bio_fauna', { id })} large outline>
-				Fauna
-			</Button>
-		</div>
+	{#if showFilter}
+		<Block class="space-y-10">
+			<Block>
+				<BlockTitle>
+					<b>Conoce tu flora y fauna</b>
+				</BlockTitle>
+				<Block>
+					<Navbar
+					  	outline translucent transparent
+					>
+						<Searchbar
+							slot="subnavbar"
+							placeholder="Busca aqui..."
+							onInput={handleSearch}
+							value={searchQuery}
+							onClear={handleClear}
+							onFocus={handleFocus}
+							onBlur={handleBlur}
+							disableButton
+							disableButtonText="Cancel"
+							onDisable={handleDisable}
+						/>
+					</Navbar>
+				</Block>
+				<span>Seleccionado: <b>{entityName}</b></span>
+				<List strongIos outlineIos>
+					{#each entities as { id, name } (name)}
+						<ListItem onClick={() => onEntitySelected(id)} touchRipple>
+							<EntityItem active={entityId === id} {name} />
+						</ListItem>
+					{/each}
+				</List>
+			</Block>
+			<Block>
+				<div class="grid grid-cols-2 gap-x-4">
+					<Button clear class="k-color-brand-green" onClick={() => biodiversityState.resetFilters() }>
+						<Link touchRipple navbar>
+							<Icon badgeColors={{ bg: 'bg-red-500' }}>
+								<RedoOutline />
+							</Icon>
+						</Link>
+						Restablecer
+					</Button>
+					<Button
+					 	clear
+						onClick={() => biodiversityState.toggleFilter()}
+					>
+						<Link touchRipple navbar>
+							<Icon badgeColors={{ bg: 'bg-red-500' }}>
+								<CloseOutline />
+							</Icon>
+						</Link>
+						Cerrar filtro
+					</Button>
+				</div>
+			</Block>
+		</Block>
+	{:else}
+		<Fab
+			class="fixed right-4-safe ios:top-15-safe material:top-18-safe z-20 k-color-brand-red"
+			text="Filtros"
+			textPosition="after"
+			onClick={() => biodiversityState.toggleFilter()}
+		>
+			<svelte:component this={AdjustmentsHorizontalOutline} slot="icon" />
+		</Fab>
+	{/if}
+
+
+	<Block>
+		{#each dataEntitiesCatalog as row}
+			<Block outlineIos class="space-y-2">
+				<AppCard 
+					routeName=""
+					title={
+						CATEGORIES.find(c => c.id == Object.values(ENTITIES).find(e => e.id == row.entityId)?.categoryId)?.text
+					} 
+					beachId={row.beachId}
+					entityId={row.entityId}
+					organismId={row.id}
+					description={row.details.substring(0, 100)}
+					imageUrl={row.image} />
+			</Block>
+		{/each}
 	</Block>
-	<Fab
+	<!-- <Fab
 		class="fixed left-1/2 bottom-4-safe transform -translate-x-1/2 z-20"
 		text="Ingresar registro"
 		textPosition="after"
 		onClick={() => goRoute('beach_bio_form', { id })}
 	>
 		<svelte:component this={PlusOutline} slot="icon" />
-	</Fab>
+	</Fab> -->
 </Page>
 
 <style>

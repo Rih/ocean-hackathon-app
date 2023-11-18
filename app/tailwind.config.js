@@ -9,7 +9,7 @@ export default konstaConfig({
       colors: {
         primary: {
           light: '#ff864b',
-          DEFAULT: '#ff6b22',
+          DEFAULT: '#ffffff',
           dark: '#f85200',
         },
       },

@@ -33,7 +33,7 @@
                     {#each emotions as { name, text } (name)}
                         <ListItem>
                             <Link>
-                                <i class={`emoji ${name}`} />{text}
+                                <i class={`emoji ${name}`} /><span class="container">{text}</span>
                             </Link>
                         </ListItem>
                     {/each}

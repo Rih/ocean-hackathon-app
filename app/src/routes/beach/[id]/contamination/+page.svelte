@@ -27,7 +27,6 @@
 
 	const plasticColor = convertIndexToColor(beach.plastic_index)
 	const dangerColor = convertIndexToColor(beach.danger_index)
-	debugger;
 	const beachIndex: any[] = [
 		{
 			id: 1,
@@ -63,7 +62,9 @@
 	<Title title={`Estado de contaminación de playa ${beach.title}`} justify="left" />
 	{#each beachIndex as bi(bi.id)}
 		<Block outlineIos class="space-y-2">
-			<div class="title-index">{bi.title}</div>
+			<div class="container">
+				<span class="title-index">{bi.title}</span>
+			</div>
 			<div class="grid grid-cols-2 gap-x-8 beach-index">
 				<div>
 					<div class="semaphare-contaner">
@@ -81,7 +82,9 @@
 	{/each}
 
 	<Block>
-		<p>Recomendaciones a tomar debido al resultados de los dos índices.</p>
+		<div class="container">
+			<p>Recomendaciones a tomar debido al resultados de los dos índices.</p>
+		</div>
 	</Block>
 	<Block outlineIos class="space-y-2">
 		<div class="grid grid-cols-2 gap-x-4">
@@ -90,7 +93,7 @@
 					class="font-bold"
 					onClick={() => goRoute('beach_contamination_evaluate', { id })}
 					large
-					outline>Evalúa tu playa</Button
+					>Evalúa tu playa</Button
 				>
 			</div>
 			<div>
@@ -98,7 +101,7 @@
 					class="font-bold"
 					onClick={() => goRoute('beach_contamination_knowmore', { id })}
 					large
-					outline>Saber más</Button
+					>Saber más</Button
 				>
 			</div>
 		</div>

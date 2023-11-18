@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import { onMount, setContext } from 'svelte';
 
+	// @ts-ignore
 	import { pwaInfo } from 'virtual:pwa-info';
 	import '../app.css';
 	import { App } from 'konsta/svelte';
@@ -13,10 +14,11 @@
 
 	onMount(async () => {
 		if (pwaInfo) {
+			// @ts-ignore
 			const { registerSW } = await import('virtual:pwa-register');
 			registerSW({
 				immediate: true,
-				onRegistered(r) {
+				onRegistered(r: any) {
 					// uncomment following code if you want check for updates
 					// r && setInterval(() => {
 					//    console.log('Checking for sw update')
@@ -24,7 +26,7 @@
 					// }, 20000 /* 20s for testing purposes */)
 					console.log(`SW Registered: ${r}`);
 				},
-				onRegisterError(error) {
+				onRegisterError(error: any) {
 					console.log('SW registration error', error);
 				}
 			});
@@ -45,7 +47,7 @@
 	<App theme="material" >
 	<!-- <App {...f7parms}> -->
 		<!-- <AppK> -->
-			<div class="container">
+			<div id="container">
 				<AppLayout>
 					<Sidebar />
 					<div class="child">
@@ -67,10 +69,50 @@
 	:global(html) {
 		background-color: theme(colors.blue.100);
 	}
+	:global(.bg-md-light-surface){
+		--tw-bg-opacity: 1;
+		background-color: inherit;
+		
+	}
+	:global(p, span) {
+		color: black;
+	}
 	:global(body) {
 		/* background-image: url('./background.jpg');
-		opacity: 0.1; */
+		object-fit: cover; */
+		/* height: 100%; */
+		/* opacity: 0.1; */
+	
+
 	}
+	:global(div#container::before) {
+		/* background-color: #9BE2DD; */
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+	:global(div#container) {
+        display: block;
+        flex-direction: column;
+		/* background-image: url('./background-5.png'); */
+		/* background-color: #9BE2DD; */
+		background: rgba(204, 204, 204, 0.5);
+		color: white;
+		background-size: 30% 100%;
+		z-index: 0;
+		/* object-fit: cover; */
+		background-repeat: no-repeat;
+		background-position: 0 0;
+        justify-items: center;
+	
+	}
+	:global(.container){
+        background: rgba(0,0,0,0.3);
+    }
 	.child {
 		display: flex;
 		flex-direction: column;

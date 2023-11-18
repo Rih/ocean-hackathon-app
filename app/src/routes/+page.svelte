@@ -20,38 +20,59 @@
 
 </script>
 
-<Page>
-	<Title title="Vamos a la Playa" strong justify="center" />
-
+<Page colors={{bgIos: '', bgMaterial: ''}}>
 	<Block>
-		<p class="subtitle">Una app para promover el cuidado y conservación de las playas de Chile!</p>
-	</Block>
+		<Block>
+			<div class="space"></div>
+		</Block>
+		<Title title="Promovamos el cuidado y conservación de las playas de Chile" strong justify="center" />
+		
+		<!-- <Block>
+			<div class="box">
+				<p class="subtitle">Una app para promover el cuidado y conservación de las playas de Chile!</p>
+			</div>
 
-	<Block outlineIos class="space-y-2">
-		<div class="grid grid-cols-1 gap-x-4">
-			<Button class="font-bold" onClick={onEnter} large outline>Entrar</Button>
-		</div>
+		</Block> -->
+
+		<Block outlineIos class="space-y-2">
+			<div class="grid grid-cols-1 gap-x-4">
+				<Button class="font-bold text-white" onClick={onEnter} large rounded>Entrar</Button>
+			</div>
+		</Block>
+		<Block outlineIos class="space-y-2">
+			<div class="grid grid-cols-1 gap-x-4">
+				<Button class="font-bold text-white" onClick={onAbout} large rounded>
+					Saber más sobre este proyecto
+				</Button>
+			</div>
+		</Block>
+		<Block outlineIos class="space-y-2"> </Block>
+		<Footer>
+			<!-- <Button onClick={onExit}>Salir de la app</Button> -->
+		</Footer>
 	</Block>
-	<Block outlineIos class="space-y-2">
-		<div class="grid grid-cols-1 gap-x-4">
-			<Button class="font-bold" onClick={onAbout} large outline>
-				Saber más sobre este proyecto
-			</Button>
-		</div>
-	</Block>
-	<Block outlineIos class="space-y-2"> </Block>
-	<Footer>
-		<!-- <Button onClick={onExit}>Salir de la app</Button> -->
-	</Footer>
 </Page>
 
-<style>
+<style lang="postcss">
+	.space {
+		margin-top: 40vh;
+	}
 	.subtitle {
 		font-size: 2.2rem;
 		text-align: center;
 		color: black;
 		line-height: 1.5;
 		padding: 3rem 1rem;
-		background-color: #b6d7a8;
+		opacity: 1;
+		z-index: 1;
+		/* background-color: #b6d7a8; */
+	}
+	:global(h1, h2, h3, h4, h5, h6, p) {
+		opacity:1!important;
+	}
+	
+	.box{
+		opacity: 0.6;
+		background-color: rgba(255, 255, 255, 0.361);
 	}
 </style>
