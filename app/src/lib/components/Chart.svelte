@@ -4,9 +4,9 @@
 	import { onMount } from 'svelte';
 
     const DATA_COUNT = 12;
-    const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 500, decimals: 0};
-  
-    const labels = Utils.months({count: 7});
+    const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 100, decimals: 0};
+    export let graphType: string = "bar";
+    const labels = Utils.months({count: 3});
     const data = {
         labels: labels,
         datasets: [
@@ -106,7 +106,7 @@
     let chartValues = [20, 10, 5, 2, 20, 30, 45];
 	let chartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
     const config = {
-        type: 'bar',
+        type: graphType,
         data: data,
         options: {
             responsive: true,
@@ -138,4 +138,4 @@ onMount( () => {
 </script>
 
 
-<canvas bind:this={chartCanvas} id="chart_ex"></canvas>
+<canvas bind:this={chartCanvas} id="chart_ex" height="500"></canvas>

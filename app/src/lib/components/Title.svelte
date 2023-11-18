@@ -7,7 +7,7 @@
 </script>
 
 <Block class="w-full" outlineIos>
-    <div class="container">
+    <div class="">
         <h1 class={`title ${justify}`}>{title}</h1>
     </div>
 </Block>
@@ -21,7 +21,6 @@
         margin-top: 4rem;
         font-size: 22px;
         line-height: 2.0;
-        color: rgb(238, 227, 227);
         border-radius: 20%;
         text-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
         background: rgba(0,0,0,0);

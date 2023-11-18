@@ -24,8 +24,10 @@
 	const excluded_routes = [
 		'beach_bio_entity_organism',
 		'beach_bio_entity', 'beach_bio_form', 'beach_bio_photo',
+		'beach_opinion',
 		'beach_contamination', 'beach_index','beach_bio_index', 'beach_evaluation',
 		'beach_contamination_evaluate', 'beach_contamination_knowmore',
+		'beach_contamination_feedback', 'beach_contamination_schedule',
 		'beach_report_contamination', 'beach_report_fauna', 'beach_report_block',
 		'beach_report', 'beach_bio_fauna', 'beach_bio_flora',
 	];

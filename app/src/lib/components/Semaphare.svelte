@@ -54,68 +54,35 @@
         height: 40px;
         box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
     }
-    :global(.round.softgray){
-        background-color: rgb(191, 189, 189);
-        color: black;
-    }
+  
+    
+   
     :global(.round.softgreen) {
-        background-color: rgb(102, 155, 102);
-        color: black;
-    }
-    :global(.round.softorange){
-        background-color: rgb(245, 203, 125);
-        color: black;
-    }
-    :global(.round.softlightyellow) {
-        background-color: lightyellow;
-        color: black;
-    }
-    :global(.round.softlightred){
-        background-color: rgb(227, 195, 200);
-        color: white;
-    }
-    :global(.round.softred){
-        background-color: rgb(239, 84, 84);
-        color: white;
-    }
-    :global(.round.softviolet) {
-        background-color: violet;
-        color: white;
-    }
-    :global(.round.softblack) {
-        background-color: rgb(50, 49, 49);
-        color: white;
-    }
-    :global(.round.gray){
-        background-color: gray;
+        background-color: rgba(157, 220, 157, 0.2);
         color: black;
     }
     :global(.round.green) {
-        background-color: green;
+        background-color: rgba(13, 129, 13, 1);
         color: black;
     }
-    :global(.round.orange){
-        background-color: orange;
+    
+    :global(.round.softyellow) {
+        background-color: rgba(240, 240, 37, 0.2);
         color: black;
     }
-    :global(.round.lightyellow) {
-        background-color: yellow;
+    :global(.round.yellow) {
+        background-color: rgba(255, 255, 0, 1);
         color: black;
     }
-    :global(.round.lightred){
-        background-color: pink;
+
+    :global(.round.softred){
+        background-color: rgba(219, 90, 90, 0.2);
         color: white;
     }
+
     :global(.round.red){
-        background-color: red;
+        background-color: rgba(255, 0, 0, 1);
         color: white;
     }
-    :global(.round.violet) {
-        background-color: violet;
-        color: white;
-    }
-    :global(.round.black) {
-        background-color: black;
-        color: white;
-    }
+
 </style>

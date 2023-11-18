@@ -49,12 +49,11 @@
 <style>
 	.subtitle {
 		font-size: 1.8rem;
-		text-align: center;
+		text-align: justify;
 		color: black;
 		line-height: 1.5;
 		padding-top: 3rem;
 		padding-bottom: 3rem;
-		background-color: #b6d7a8;
 	}
 	.source {
 		font-style: italic;

@@ -39,6 +39,11 @@ export const ROUTES: Route[] = [
         uri: '/beach/[id]/contamination',
     },
     {
+        name: 'beach_opinion',
+        title: 'Opinión',
+        uri: '/beach/[id]/opinion',
+    },
+    {
         name: 'beach_evaluation',
         title: 'Evaluaciones',
         uri: '/beach/[id]/evaluations',
@@ -49,9 +54,19 @@ export const ROUTES: Route[] = [
         uri: '/beach/[id]/contamination/evaluate',
     },
     {
+        name: 'beach_contamination_schedule',
+        title: 'Agenda limpieza',
+        uri: '/beach/[id]/contamination/schedule',
+    },
+    {
         name: 'beach_contamination_knowmore',
         title: 'Saber más',
         uri: '/beach/[id]/contamination/know-more',
+    },
+    {
+        name: 'beach_contamination_feedback',
+        title: 'Feedback',
+        uri: '/beach/[id]/contamination/feedback',
     },
     {
         name: 'beach_report',

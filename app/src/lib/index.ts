@@ -10,10 +10,11 @@ export const COLORS: Record<string, string> = {
     WHITE: 'white',
     GRAY: 'gray',
     GREEN: 'green',
+    YELLOW: 'yellow',
+    RED: 'red',
     LIGHTYELLOW: 'lightyellow',
     ORANGE: 'orange',
     LIGHTRED: 'lightred',
-    RED: 'red',
     VIOLET: 'violet',
     BLACK: 'black',
 }

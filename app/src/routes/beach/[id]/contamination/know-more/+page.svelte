@@ -13,7 +13,7 @@
 </script>
 
 <Page>
-	<Title title="Construcción de los índices y escalas de interpretación2" />
+	<Title title="Construcción de los índices y escalas de interpretación" />
 	<Block outlineIos class="space-y-2">
 		<p class="subtitle">
 			En la construcción de los índices, se emplearon dos enfoques distintos. El primero evalúa la
@@ -39,8 +39,8 @@
 		color: black;
 		line-height: 1.5;
 		padding-top: 3rem;
+		text-align: justify;
 		padding-bottom: 3rem;
-		background-color: #b6d7a8;
 	}
 	.source {
 		font-style: italic;

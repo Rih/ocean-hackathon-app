@@ -74,19 +74,26 @@ export function labels(config: any) {
 }
 
 const MONTHS = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
+  'Enero',
+  'Febrero',
+  'Marzo',
+  'Abril',
+  'Mayo',
+  'Junio',
+  'Julio',
+  'Agosto',
+  'Septiembre',
+  'Octubre',
+  'Noviembre',
+  'Diciembre'
 ];
+
+const YEARS = [
+  2023,
+  2022,
+  2021,
+  2020,
+]
 
 export function transparentize(value: string, opacity: number) {
     var alpha = opacity === undefined ? 0.5 : 1 - opacity;
@@ -103,6 +110,22 @@ export function months(config: any) {
   for (i = 0; i < count; ++i) {
     value = MONTHS[Math.ceil(i) % 12];
     values.push(value.substring(0, section));
+  }
+
+  return values;
+}
+
+
+export function years(config: any) {
+  var cfg = config || {};
+  var count = cfg.count || 12;
+  var section = cfg.section;
+  var values = [];
+  var i, value;
+
+  for (i = 0; i < count; ++i) {
+    value = YEARS[Math.ceil(i) % 10];
+    values.push(String(value).substring(0, section));
   }
 
   return values;

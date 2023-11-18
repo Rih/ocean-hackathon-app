@@ -68,12 +68,10 @@
 </script>
 
 <Page>
-	<Title title="" />
 	<Block>
-		<Navbar title="Buscador de Playas">
+		<Navbar outline translucent transparent>
 			<Searchbar
 				slot="subnavbar"
-				label="Buscar"
 				placeholder="Escribe el nombre de la playa acá..."
 				onInput={handleSearch}
 				value={searchQuery}
@@ -96,7 +94,7 @@
 	</List>
 	<Loader />
 	<Block>
-		<div class="container">
+		<div class="">
 			<p>O también puedes navegar en el mapa aquí...</p>
 		</div>
 		<Map />

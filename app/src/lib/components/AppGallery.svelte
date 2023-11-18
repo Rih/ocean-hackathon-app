@@ -26,4 +26,4 @@
   // ];
 </script>
 
-<ImageGallery items="{images}" />
+<ImageGallery items="{images}" showNav={false} />

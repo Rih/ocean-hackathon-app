@@ -9,7 +9,7 @@
 	<TItle title="Manual de Buenas prácticas" />
 
 	<Block>
-		<div class="container">
+		<div class="">
 			<p class="subtitle">
 				Sigue estos consejos para disfrutar de una jornada respetuosa y agradable en la playa
 			</p>
@@ -18,7 +18,7 @@
 	<Block>
 		<List>
 			<ListItem class="listitem">
-				<div class="container">
+				<div class="">
 					<span
 						><b>No dejes residuos en la playa</b>. Llévate tu basura y recíclala adecuadamente.
 						Recuerda, la
@@ -28,7 +28,7 @@
 			</ListItem>
 
 			<ListItem class="listitem"
-				><div class="container">
+				><div class="">
 					<span>
 						<b>Protege la flora y fauna</b>. Evita perturbar la vida marina y la vegetación de la
 						playa. No toques ni dañes los animales o plantas que encuentres. Muchas playas son
@@ -38,7 +38,7 @@
 			</ListItem>
 
 			<ListItem class="listitem">
-				<div class="container">
+				<div class="">
 					<span>
 						<b>Respeta las banderas y señales de seguridad en la playa</b>. Ten precaución al nadar
 						y sigue las recomendaciones de los salvavidas.
@@ -47,7 +47,7 @@
 			</ListItem>
 
 			<ListItem class="listitem"
-				><div class="container">
+				><div class="">
 					<span>
 						<b>Cuida las dunas</b>. No camines ni conduzcas vehículos en las dunas, ya que esto
 						puede dañar el ecosistema costero. Si observas vehículos en dunas, repórtalo.
@@ -56,7 +56,7 @@
 			</ListItem>
 
 			<ListItem class="listitem">
-				<div class="container">
+				<div class="">
 					<span>
 						Uso responsable de las instalaciones: Si la playa tiene servicios, utilízalos de manera
 						responsable y sigue las indicaciones de los encargados.
@@ -65,7 +65,7 @@
 			</ListItem>
 
 			<ListItem class="listitem">
-				<div class="container">
+				<div class="">
 					<span>
 						Evitar la contaminación: <b
 							>No viertas sustancias contaminantes en el agua ni en la arena</b
@@ -75,7 +75,7 @@
 			</ListItem>
 
 			<ListItem class="listitem"
-				><div class="container">
+				><div class="">
 					<span
 						>Respeto por otros visitantes: Mantén un comportamiento respetuoso con otros bañistas y
 						usuarios de la playa.
