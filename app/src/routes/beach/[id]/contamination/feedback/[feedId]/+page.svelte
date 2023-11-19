@@ -2,11 +2,19 @@
 	import { Block, Button, Link, Page } from 'konsta/svelte';
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
+	import ConfirmFeedback from '$lib/components/ConfirmFeedback.svelte';
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
 	import Title from '$lib/components/Title.svelte';
 
 	const id = Number($page.params.id);
+	const feedId = Number($page.params.feedId);
+	const actions = {
+		1: {text: "Ver Manual", route: 'manual', question: 'Ayúdanos a que la playa siga así de limpia, llevate visita el manual de buenas prácticas'},
+		2: {text: "Agendar limpieza", route: 'beach_contamination_schedule', question: 'Ayúdanos a mejorar esta condición'},
+	};
+	const confirmAction = actions[feedId]!;
+	let showConfirmFeedback: boolean = true;
 	const beach = BEACHES.find((b) => b.id == id)!;
 
 	console.log({ id });
@@ -38,7 +46,16 @@
 			Agendar limpieza
 		</Button>
 	</Block>
-
+	<ConfirmFeedback
+		show={showConfirmFeedback}
+		routeName={confirmAction.route}
+		callToActionText={confirmAction.text}
+		on:onClose={() => {
+			showConfirmFeedback = false;
+		}}
+		title="Ayúdanos"
+		question={confirmAction.question}
+	/>
 	<Footer />
 </Page>
 

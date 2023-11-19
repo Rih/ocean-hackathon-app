@@ -66,7 +66,7 @@ export const ROUTES: Route[] = [
     {
         name: 'beach_contamination_feedback',
         title: 'Feedback',
-        uri: '/beach/[id]/contamination/feedback',
+        uri: '/beach/[id]/contamination/feedback/[feedId]',
     },
     {
         name: 'beach_report',
@@ -129,10 +129,11 @@ type ExtraRouteParams = {
     id?: number | null,
     entityId?: number | null,
     organismId?: number | null,
+    feedId?: number | null,
 }
 export const goRoute = (
     name: string,
-    { id = null, entityId = null, organismId = null }: ExtraRouteParams
+    { id = null, entityId = null, organismId = null, feedId = null }: ExtraRouteParams
 ) => {
     const foundRoute = ROUTES.find(r => r.name === name)
     let completeRoute = foundRoute?.uri!;
@@ -144,7 +145,9 @@ export const goRoute = (
     }
     if (organismId) {
         completeRoute = `${completeRoute.replace(/\[organismId\]/, String(organismId))}`;
-
+    }
+    if (feedId) {
+        completeRoute = `${completeRoute.replace(/\[feedId\]/, String(feedId))}`;
     }
     if (!PREFIX) {
         goto(completeRoute);

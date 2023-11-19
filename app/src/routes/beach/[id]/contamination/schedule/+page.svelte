@@ -6,8 +6,6 @@
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
 	import Title from '$lib/components/Title.svelte';
-	import Semaphare from '$lib/components/Semaphare.svelte';
-	import { COLORS } from '$lib';
 
 	const id = Number($page.params.id);
 	let showConfirm: boolean = false;
@@ -46,7 +44,6 @@
 		show={showConfirm}
 		on:onClose={() => {
 			showConfirm = false;
-			goRoute('beach_contamination_feedback', { id });
 		}}
 		title="Ayúdanos a mejorar"
 		question="¿No estás de acuerdo con esta valoración?"

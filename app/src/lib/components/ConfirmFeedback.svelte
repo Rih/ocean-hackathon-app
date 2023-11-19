@@ -14,9 +14,11 @@
 	} from 'konsta/svelte';
 	import { page } from '$app/stores';
 	import { createEventDispatcher } from 'svelte';
-	export let show: boolean = false;
 	const id = Number($page.params.id);
+	export let show: boolean = false;
     export let title: string = '';
+    export let routeName: string = '';
+	export let callToActionText: string = '';
     export let question: string = '';
     const dispatch = createEventDispatcher();
 </script>
@@ -26,8 +28,8 @@
 		<svelte:fragment slot="title">{title}</svelte:fragment> 
 		{question}
 		<svelte:fragment slot="buttons">
-			<DialogButton strong onClick={() => (goRoute('beach_contamination_feedback', {id, feedId: 1}))}>Está más limpia</DialogButton>
-			<DialogButton strong onClick={() => (goRoute('beach_contamination_feedback', {id, feedId: 2}))}>Está más sucia</DialogButton>
+			<DialogButton strong onClick={() => goRoute(routeName, { id })}>{callToActionText}</DialogButton>
+			<DialogButton strong onClick={() => (dispatch('onClose', false))}>Cerrar</DialogButton>
 		</svelte:fragment>
 	</Dialog>
 </Page>

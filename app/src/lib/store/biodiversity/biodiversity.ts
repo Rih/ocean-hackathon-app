@@ -19,7 +19,7 @@ export interface BiodiversityStore {
 }
 
 const FILTER_INIT: BiodiversityStore = {
-	showFilter: true,
+	showFilter: false,
 	entityId: 0,
 	name: '',
 	loading: false,

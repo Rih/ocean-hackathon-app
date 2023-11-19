@@ -72,7 +72,7 @@
 		<Navbar outline translucent transparent>
 			<Searchbar
 				slot="subnavbar"
-				placeholder="Escribe el nombre de la playa acá..."
+				placeholder="Busca tu playa acá..."
 				onInput={handleSearch}
 				value={searchQuery}
 				onClear={handleClear}

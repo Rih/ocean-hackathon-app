@@ -16,8 +16,11 @@
 </script>
 
 <Page>
-	<h2 class="title"> {individual.name}</h2>
-	<h2 class="subtitle"> {individual.scientific_name}</h2>
+	<Block>
+		<p class="title"> {individual.name}</p>
+		<h2 class="subtitle"> {individual.scientific_name}</h2>
+	</Block>
+	
 	<Block outlineIos class="space-y-2">
 		<div>
 			<img src={`${individual.image}`} alt={`imagen de ${individual.name}`} />
@@ -35,21 +38,28 @@
 	</Block>
 	<Block outlineIos class="space-y-2">
 		<div>
-			Estado de conservación IUCN:
+			<p style="text-align: justify">
+				Estado de conservación:
+			</p>
 		</div>
 	</Block>
 
 	<Block>
-		<p>{STATES_CONSERVATION[individual.conservation_status].text}</p>
+		<p style="font-size: 28px">{STATES_CONSERVATION[individual.conservation_status].text}</p>
 	</Block>
+	
 	<Block outlineIos class="space-y-2 text-center" >
-		<Block class="grid grid-cols-3 gap-x-8 gap-y-3 oval-container">
-			{#each Object.entries(STATES_CONSERVATION) as [c, s], i}
+		<Block class="grid grid-cols-2 gap-x-2 gap-y-3 oval-container">
+			<div>
+				<p>Sigla IUCN:</p>
+			</div>
+			<div>
 				<StateIucn 
-					color={s.color} 
-					text={c} 
-					active={c == individual.conservation_status }  />
-			{/each}
+				color={STATES_CONSERVATION[individual.conservation_status].color} 
+				text={individual.conservation_status} 
+				active={true }  />
+			</div>
+				
 		</Block>
 		
 	</Block>
