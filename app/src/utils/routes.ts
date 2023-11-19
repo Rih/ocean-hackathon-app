@@ -44,6 +44,11 @@ export const ROUTES: Route[] = [
         uri: '/beach/[id]/opinion',
     },
     {
+        name: 'beach_forum',
+        title: 'Foro',
+        uri: '/beach/[id]/forum',
+    },
+    {
         name: 'beach_evaluation',
         title: 'Evaluaciones',
         uri: '/beach/[id]/evaluations',

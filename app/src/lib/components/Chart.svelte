@@ -59,7 +59,7 @@
             const dsColor = Utils.namedColor(chart.data.datasets.length);
             const newDataset = {
                 label: 'Dataset ' + (data.datasets.length + 1),
-                backgroundColor: Utils.transparentize(dsColor, 0.5),
+                backgroundColor: Utils.transparentize(dsColor, 0.7),
                 borderColor: dsColor,
                 borderWidth: 1,
                 data: Utils.numbers({count: data.labels.length, min: -100, max: 100}),

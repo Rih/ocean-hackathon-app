@@ -4,7 +4,6 @@
 	export let title: string = 'titulo';
 	export let description: string = '';
 	export let imageUrl: string = '';
-	export let routeName: string = 'titulo';
 	export let beachId: number = 0;
 	export let entityId: number = 0;
 	export let organismId: number = 0;
@@ -22,7 +21,7 @@
 	<Card class="m-0 p-0">
 		<div
 			class="ios:-mx-4 ios:-mt-4 h-48 p-2 flex items-end text-white ios:font-bold bg-cover bg-center material:rounded-xl material:text-[22px]"
-			style={`background-image: url(${imageUrl});`}
+			style={`background-image: url(.${imageUrl});`}
 			on:click={(_) => goRoute('beach_bio_entity_organism', { id: beachId, entityId, organismId })}
 		>
 			

@@ -5,6 +5,7 @@
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
 	import Title from '$lib/components/Title.svelte';
+	import Play from '$lib/components/Play.svelte';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
@@ -19,6 +20,7 @@
 			La ley chilena concede a todas las personas que estén en Chile el derecho a acceder a playas
 			de mar o lago, desembocaduras de ríos, cascadas o glaciares
 		</p>
+		<Play />
 	</Block>
 	<Block>
 		<p>
@@ -26,7 +28,7 @@
 			cobrando por ingresar, haz tu denuncia a través de los canales oficiales del Ministerio de
 			Bienes Nacionales haciendo click acá:
 		</p>
-
+		<Play />
 		<Link component="a" href="https://idembn.bienes.cl/fcp/web-form/65" target="_blank">
 			https://idembn.bienes.cl/fcp/web-form/65
 		</Link>

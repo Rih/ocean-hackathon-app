@@ -7,6 +7,7 @@
 	import { goRoute } from '@utils/routes';
 	import Title from '$lib/components/Title.svelte';
 	import { PlusOutline } from 'flowbite-svelte-icons';
+	import Play from '$lib/components/Play.svelte';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
@@ -21,13 +22,14 @@
 	</Block>
 	<Block>
 		<div class="">
-			<p>{beach.region}</p>
+			<p>{beach.region}, {beach.country}</p>
 		</div>
 	</Block>
 
 	<Block>
 		<div class="">
 			<p class="subtitle">{beach.details}</p>
+			<Play />
 		</div>
 	</Block>
 	<Block>
@@ -48,6 +50,9 @@
 			<svelte:component this={PlusOutline} slot="icon" />
 			<span />
 		</Fab>
+	</Block>
+	<Block>
+		<div class="space"></div>
 	</Block>
 
 	
@@ -80,5 +85,9 @@
 		line-height: 1.5;
 		padding-top: 3rem;
 		padding-bottom: 3rem;
+	}
+
+	.space {
+		margin-top: 10vh;
 	}
 </style>

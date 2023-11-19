@@ -4,6 +4,7 @@
 	import { goRoute } from '@utils/routes';
 	import Title from '$lib/components/Title.svelte';
 	import Notify from '$lib/components/Notify.svelte';
+	import Play from '$lib/components/Play.svelte';
 
 
 	let open: boolean = false;
@@ -14,6 +15,7 @@
 <Page>
 	<Title title="Selecciona la denuncia que quieres hacer:" />
 	<Notify text="Página en construcción" toastOpened={open}/>
+	<Play />
 	<Block outlineIos class="space-y-2">
 		<Button onClick={() => open = true}>Ruidos molestos</Button>
 		<Button onClick={() => goRoute('beach_report_contamination', {id})}>Contaminación</Button>

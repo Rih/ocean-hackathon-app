@@ -16,12 +16,12 @@
 <style>
 
     .container{
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.7);
     }
     .title {
         margin-top: 4rem;
         font-size: 22px;
-        line-height: 2.0;
+        line-height: 1.4;
         border-radius: 20%;
         text-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
         background: rgba(0,0,0,0);

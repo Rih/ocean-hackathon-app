@@ -3,6 +3,7 @@
 	import { Icon, Link } from 'konsta/svelte';
 
 	export let active: boolean = false;
+	export let thumbnail: string = '';
 	export let name: string = '';
 	let classColor: any = null;
 	$: {
@@ -17,7 +18,7 @@
 <div class="entity-list" bind:this={classColor}>
 	<Link iconOnly>
 		<Icon badgeColors={{ bg: 'bg-red-500' }}>
-			<CloseOutline />
+			<img src={thumbnail}  alt="logo" height="30" width="30" />
 		</Icon>
 	</Link>
 	<span>{name}</span>

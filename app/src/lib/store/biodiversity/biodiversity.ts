@@ -1,4 +1,4 @@
-import { CATALOG } from '$lib/data/catalog';
+import { CATALOG, type Catalog } from '$lib/data/catalog';
 import { ENTITIES, type Entity } from '$lib/data/entity';
 import { writable } from 'svelte/store';
 
@@ -16,6 +16,7 @@ export interface BiodiversityStore {
 	name: string;
 	loading: boolean;
 	entities: Entity[];
+	catalog: Catalog[];
 }
 
 const FILTER_INIT: BiodiversityStore = {
@@ -24,6 +25,7 @@ const FILTER_INIT: BiodiversityStore = {
 	name: '',
 	loading: false,
 	entities: ENTITIES,
+	catalog: [],
 };
 
 const { subscribe, set, update } = writable(FILTER_INIT);
@@ -66,6 +68,17 @@ const setEntities = (entityId: number) => update((state) => {
 		entities: records,
 	}
 })
+
+const setCatalog = (records: Catalog[]) => update((state) => {
+	return {
+		...state,
+		catalog: [
+			...state.catalog, 
+			...records
+		],
+	}
+})
+
 const setLoading = (value: boolean) => update((state) => {
 	return {
 		...state,
@@ -81,4 +94,5 @@ export default {
 	setName,
 	setLoading,
 	setEntities,
+	setCatalog,
 };

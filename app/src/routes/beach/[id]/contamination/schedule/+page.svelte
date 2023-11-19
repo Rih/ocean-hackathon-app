@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Block, Button, List, ListItem, Page } from 'konsta/svelte';
+	import { Block, Button, List, ListInput, ListItem, Page } from 'konsta/svelte';
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
-	import Confirm from '$lib/components/Confirm.svelte';
+	import ConfirmSchedule from '$lib/components/ConfirmSchedule.svelte';
 	import { BEACHES } from '$lib/data';
 	import { goRoute } from '@utils/routes';
 	import Title from '$lib/components/Title.svelte';
@@ -10,7 +10,12 @@
 	const id = Number($page.params.id);
 	let showConfirm: boolean = false;
 	const beach = BEACHES.find((b) => b.id == id)!;
+	let name = { value: '', changed: false };
+	let demoValue = '';
 
+	const onIndicationChange = (e: any) => {
+		name = { value: e.target.value, changed: true };
+	};
 	const recomendations: string[] = [
 		'-Selecciona el día que quieres realizar la limpieza ',
 		'-Indica en el formulario la playa que quieres limpiar ',
@@ -31,22 +36,50 @@
 				</ListItem>
 			{/each}
 		</List>
-	</Block>
 
+	<Block outlineIos class="space-y-2">
+		<img src="/calendar-2.png" alt="Calendario" />
+	</Block>
+	
+	</Block>
+		<ListInput
+				label="Fecha del evento"
+				type="date"
+				placeholder="Indique la fecha..."
+			/>
+			<ListInput
+				label="Hora de inicio"
+				type="text"
+				placeholder="Indique la hora..."
+			/>
+			<ListInput
+				label="Contacto"
+				type="text"
+				placeholder="Indique el contacto..."
+			/>
+			<ListInput
+			label="Indicaciones"
+			type="text"
+			placeholder="Tus Indicaciones"
+			info="Detalles, implementos, etc"
+			value={name.value}
+			error={name.changed && !name.value.trim() ? 'Las indicaciones es requerida' : ''}
+			onInput={onIndicationChange}
+		/>
 	<Block outlineIos class="space-y-2">
 		<Button
 			class="font-bold k-color-brand-red"
-			onClick={() => goRoute('beach_contamination_evaluate', { id })}
+			onClick={() => showConfirm = true}
 			large>Agendar</Button
 		>
 	</Block>
-	<Confirm
+	<ConfirmSchedule
 		show={showConfirm}
 		on:onClose={() => {
 			showConfirm = false;
 		}}
-		title="Ayúdanos a mejorar"
-		question="¿No estás de acuerdo con esta valoración?"
+		title="Agendado"
+		question="Gracias por colaborar"
 	/>
 	<Footer />
 </Page>

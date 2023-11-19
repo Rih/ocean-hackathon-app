@@ -22,9 +22,11 @@
 	import { CATEGORIES, CATEGORY_FAUNA, CATEGORY_FLORA } from '$lib/data/category';
 	import type { Entity } from '$lib/data/entity';
 	import type { Catalog } from '$lib/data/catalog';
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import type { BiodiversityStore } from '$lib/store/biodiversity/biodiversity';
 	import AppCard from '$lib/components/AppCard.svelte';
+	import InfiniteScroll from '$lib/components/InfiniteScroll.svelte';
+	import { CatalogService } from '$lib/services/CatalogService';
 
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
@@ -36,12 +38,16 @@
 	let focused: boolean = false;
 	let entityId: number = 0;
 	let entityName: string = 'Todos';
+	let currentPage: number = 1;
 	let entities: Entity[] = ENTITIES;
+	let newBatch: Catalog[] = [];
+	let catalog: Catalog[] = [];
 	let subs = biodiversityState.subscribe((value: BiodiversityStore) => {
 		showFilter = value.showFilter;
 		searchQuery = value.name;
 		entityId = value.entityId;
 		entities = value.entities;
+		catalog = value.catalog;
 		entityName =
 			entityId == 0 ? 'Todos' : Object.values(ENTITIES).find((c) => entityId === c.id)?.name!;
 	});
@@ -77,20 +83,30 @@
 	const setCatalogName = (id: number) => {
 			const name = Object.values(CATALOG).find( (c) => c.id == id)!.name
 			return name;
-
 	}
+	onMount(async() =>{
+		const {data} = await new CatalogService().fetchData({ }, currentPage);
+		newBatch = data;
+		biodiversityState.setCatalog(newBatch);
+		currentPage++;
+	});
 </script>
 
 <Page>
 	{#if showFilter}
 		<Block class="space-y-10">
 			<Block>
-				<BlockTitle>
+				<Block>
+				<BlockTitle style="color: black;">
 					<b>Conoce tu flora y fauna</b>
 				</BlockTitle>
+			</Block>
 				<Block>
 					<Navbar
 					  	outline translucent transparent
+						  title="Conoce tu flora y fauna"
+						  style="color: black"
+
 					>
 						<Searchbar
 							slot="subnavbar"
@@ -108,16 +124,20 @@
 				</Block>
 				<span>Seleccionado: <b>{entityName}</b></span>
 				<List strongIos outlineIos>
-					{#each entities as { id, name } (name)}
+					{#each entities as { id, name, thumbnail } (name)}
 						<ListItem onClick={() => onEntitySelected(id)} touchRipple>
-							<EntityItem active={entityId === id} {name} />
+							<EntityItem active={entityId === id} {name} {thumbnail}/>
 						</ListItem>
 					{/each}
 				</List>
 			</Block>
 			<Block>
 				<div class="grid grid-cols-2 gap-x-4">
-					<Button clear class="k-color-brand-green" onClick={() => biodiversityState.resetFilters() }>
+					<Button 
+						clear 
+						style="color: black"
+						class="k-color-brand-green" 
+						onClick={() => biodiversityState.resetFilters() }>
 						<Link touchRipple navbar>
 							<Icon badgeColors={{ bg: 'bg-red-500' }}>
 								<RedoOutline />
@@ -127,6 +147,7 @@
 					</Button>
 					<Button
 					 	clear
+						style="color: black"
 						onClick={() => biodiversityState.toggleFilter()}
 					>
 						<Link touchRipple navbar>
@@ -152,12 +173,22 @@
 
 
 	<Block>
-		{#each dataEntitiesCatalog as row}
+		<InfiniteScroll
+				hasMore={newBatch.length > 0}
+				threshold={8}
+				on:loadMore={async () => {
+					currentPage++;
+					const {data} = await new CatalogService().fetchData({ }, currentPage);
+					newBatch = data;
+					biodiversityState.setCatalog(newBatch);
+				}}
+			/>
+			
+		{#each catalog as row}
 			<Block outlineIos class="space-y-2">
 				<AppCard 
-					routeName=""
 					title={
-						CATEGORIES.find(c => c.id == Object.values(ENTITIES).find(e => e.id == row.entityId)?.categoryId)?.text
+						Object.values(ENTITIES).find(e => e.id == row.entityId)?.name
 					} 
 					beachId={row.beachId}
 					entityId={row.entityId}
@@ -166,6 +197,11 @@
 					imageUrl={row.image} />
 			</Block>
 		{/each}
+		<div class="all__items">
+			<span>
+				Todo el catalogo fue cargado: {catalog.length ? 'No' : 'Si'}
+			</span>
+		</div>
 	</Block>
 	<!-- <Fab
 		class="fixed left-1/2 bottom-4-safe transform -translate-x-1/2 z-20"
@@ -190,5 +226,13 @@
 		padding-top: 3rem;
 		padding-bottom: 3rem;
 		background-color: #b6d7a8;
+	}
+
+	.all__items {
+		color: #545454;
+		font-size: 14px;
+		font-weight: 400;
+		font-family: Inter;
+		margin: 20px 0px;
 	}
 </style>

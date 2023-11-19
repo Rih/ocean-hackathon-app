@@ -65,6 +65,9 @@
 {/await}
 
 <style lang="postcss">
+	:global(*){
+		font-family: Comfortaa, cursive, sans-serif;
+	}
 	:global(html) {
 		background-color: theme(colors.blue.100);
 	}

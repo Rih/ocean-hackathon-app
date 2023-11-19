@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Block, Button, Dialog, DialogButton, Link, List, ListItem, Page } from 'konsta/svelte';
+	import { Block, Button, Dialog, DialogButton, Link, List, ListInput, ListItem, Page } from 'konsta/svelte';
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/Footer.svelte';
 	import { BEACHES } from '$lib/data';
@@ -10,7 +10,13 @@
 	const id = Number($page.params.id);
 	const beach = BEACHES.find((b) => b.id == id)!;
 	let confirmOpened: boolean = false;
+	let commentOpened: boolean = false;
+	let name = { value: '', changed: false };
+	let demoValue = '';
 
+	const onNameChange = (e: any) => {
+		name = { value: e.target.value, changed: true };
+	};
 	const emotions = [
 		{ name: 'sad', text: 'Con tristeza e impotencia' },
 		{ name: 'worried', text: 'Preocupado/a' },
@@ -59,7 +65,7 @@
 		>
 	</Block>
 	<Block>
-		<Button onClick={() => goRoute('beach_opinion', { id })}
+		<Button onClick={() => commentOpened = true }
 			>Deja una opinión o comentario</Button
 		>
 	</Block>
@@ -68,6 +74,25 @@
 		¡Gracias por tu valoración!
 		<svelte:fragment slot="buttons">
 			<DialogButton strong onClick={() => (confirmOpened = false)}>Cerrar</DialogButton>
+		</svelte:fragment>
+	</Dialog>
+
+	<Dialog opened={commentOpened} onBackdropClick={() => (commentOpened = false)}>
+		<svelte:fragment slot="title">Coméntanos</svelte:fragment>
+		<List>
+		<ListInput
+				label="Comentarios"
+				type="text"
+				placeholder="Tus comentarios"
+				info="Coméntamos aqui sobre tu visita"
+				value={name.value}
+				error={name.changed && !name.value.trim() ? 'El comentario es requerido' : ''}
+				onInput={onNameChange}
+			/>
+		</List>
+		<svelte:fragment slot="buttons">
+			<DialogButton strong onClick={() => (goRoute('beach_forum', { id }))}>Comentar</DialogButton>
+			<DialogButton strong onClick={() => (commentOpened = false)}>Cerrar</DialogButton>
 		</svelte:fragment>
 	</Dialog>
 	<Footer />

@@ -132,15 +132,15 @@ export function years(config: any) {
 }
 
 const COLORS = [
-  '#4dc9f6',
-  '#f67019',
-  '#f53794',
-  '#537bc4',
-  '#acc236',
-  '#166a8f',
-  '#00a950',
-  '#58595b',
-  '#8549ba'
+  '#F90501',
+  '#F9A601',
+  '#F9EA01',
+  '#9909C1',
+  '#10C109',
+  '#092EC1',
+  '#0101F9',
+  '#F98701',
+  '#F9012A'
 ];
 
 export function color(index: number) {
@@ -149,13 +149,12 @@ export function color(index: number) {
 
 
 export const CHART_COLORS = {
-  red: 'rgb(255, 99, 132)',
-  orange: 'rgb(255, 159, 64)',
-  yellow: 'rgb(255, 205, 86)',
-  green: 'rgb(75, 192, 192)',
-  blue: 'rgb(54, 162, 235)',
-  purple: 'rgb(153, 102, 255)',
-  grey: 'rgb(201, 203, 207)'
+  red: 'rgb(249, 1, 42)',
+  orange: 'rgb(249, 135, 1)',
+  yellow: 'rgb(249, 224, 1)',
+  green: 'rgb(16, 193, 9)',
+  blue: 'rgb(9, 46, 193)',
+  purple: 'rgb(153, 9, 193)',
 };
 
 const NAMED_COLORS = [
@@ -164,8 +163,6 @@ const NAMED_COLORS = [
   CHART_COLORS.yellow,
   CHART_COLORS.green,
   CHART_COLORS.blue,
-  CHART_COLORS.purple,
-  CHART_COLORS.grey,
 ];
 
 export function namedColor(index: number) {
