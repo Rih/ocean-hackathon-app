@@ -4,10 +4,9 @@
 	// @ts-ignore
 	import { pwaInfo } from 'virtual:pwa-info';
 	import '../app.css';
-	import { App } from 'konsta/svelte';
+	import { App, KonstaProvider } from 'konsta/svelte';
 	// import { App } from 'framework7-svelte';
 	import AppLayout from '$lib/components/AppLayout.svelte';
-	import { KonstaProvider } from 'konsta/svelte';
 	import Sidebar from '$lib/components/CustomSidebar.svelte';
 	import AppHeader from '$lib/components/AppHeader.svelte';
 	import AppInstall from '$lib/components/AppInstall.svelte';
@@ -77,14 +76,7 @@
 	:global(p, span) {
 		color: black;
 	}
-	:global(body) {
-		/* background-image: url('./background.jpg');
-		object-fit: cover; */
-		/* height: 100%; */
-		/* opacity: 0.1; */
-	
 
-	}
 	:global(div#container::before) {
 		/* background-color: #9BE2DD; */
 		position: absolute;

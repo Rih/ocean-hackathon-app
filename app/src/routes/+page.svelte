@@ -20,19 +20,15 @@
 
 </script>
 
-<Page colors={{bgIos: '', bgMaterial: ''}}>
+<Page  colors={{bgIos: '', bgMaterial: ''}}>
 	<Block>
+		<div class="container">
+			<Title color="white" title="Promovamos el cuidado y conservación de las playas de Chile" strong justify="center" />
+		</div>
 		<Block>
 			<div class="space"></div>
 		</Block>
-		<Title title="Promovamos el cuidado y conservación de las playas de Chile" strong justify="center" />
 		
-		<!-- <Block>
-			<div class="box">
-				<p class="subtitle">Una app para promover el cuidado y conservación de las playas de Chile!</p>
-			</div>
-
-		</Block> -->
 
 		<Block outlineIos class="space-y-2">
 			<div class="grid grid-cols-1 gap-x-4">

@@ -91,8 +91,8 @@
 			<div
 				style="display: flex; flex-direction: column; gap: 8px; text-wrap: wrap; justify-content: center;"
 			>
-				<span style="font-size: 28px;">{bi.colorDescription}</span>
-				<span style="font-size: 18px; position: relative;bottom: 0px;">Valor: {bi.index}</span>
+				<span style="font-size: 28px; text-align: center; font-weight: 800">{bi.colorDescription}</span>
+				<span style="font-size: 18px; position: relative;bottom: 0px;">Valor: <b>{bi.index}</b> elementos/m<sup>2</sup></span>
 			</div>
 		</Block>
 	{/each}

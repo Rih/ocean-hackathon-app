@@ -4,11 +4,12 @@
     export let title: string = '';
     export let strong: boolean = false;
     export let justify: string = 'center';
+    export let color: string = 'black';
 </script>
 
 <Block class="w-full" outlineIos>
     <div class="">
-        <h1 class={`title ${justify}`}>{title}</h1>
+        <h1 class={`title ${justify} ${color}`}>{title}</h1>
     </div>
 </Block>
 
@@ -24,6 +25,13 @@
         border-radius: 20%;
         text-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
         background: rgba(0,0,0,0);
+    }
+    .black {
+        color: black;
+    }
+
+    .white  {
+        color: white;
     }
     .left{
         text-align: left;
